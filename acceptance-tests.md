@@ -21,7 +21,7 @@ Prefix test issues with `[TEST]` and close them after; they're probes, not work.
 **Post:** direct mention: `@palette [TEST] add alt text to the logo image in README`
 **Expect:** work lands on branch `agent/palette/<issue-id>-…`, a PR opens (conventional title, What/Why/Proof body, `Closes #id`), and the report's **Proof line is the PR link**. Unfinished ⇒ draft PR, still linked.
 **Acceptable variant:** `🔶 Blocked — cannot push / open PR (<missing capability>)` — tooling gap: check the agent's git credentials + PR tool per `repo-scaffold/README.md`.
-**If it fails silently (work done, no PR, reported Done):** re-paste `_shared-protocol.md` (*Shipping code* section) into that agent; confirm `CLAUDE.md` (constitution) is in the repo root.
+**If it fails silently (work done, no PR, reported Done):** re-paste `_shared-protocol.md` (*Code ships as PRs* section) into that agent; confirm `CLAUDE.md` (constitution) is in the repo root.
 
 ## T4 — Bug flow order
 **Post:** new issue assigned to NIGHTSHIFT using the bug template: a plausible fake bug (e.g. `[TEST] Export button does nothing on Safari`).

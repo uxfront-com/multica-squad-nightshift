@@ -9,7 +9,7 @@
 | Model | Deep-reasoning tier (synthesis and trade-off analysis are the job) |
 | Visibility | Workspace |
 | Concurrency | 3 |
-| Skills | `rfc` (custom), `adr` (custom), `lit-review` (custom), `pdf-reading` (Anthropic public — papers, vendor docs) |
+| Skills | `rfc` (custom), `adr` (custom), `lit-review` (custom), `pdf` (Anthropic public — papers, vendor docs) |
 | MCP | GitHub, web search (Exa), Notion |
 | Squads | NIGHTSHIFT (member) |
 

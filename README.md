@@ -108,7 +108,7 @@ Then paste the **Instructions** block from the section above.
 | signal | api-design, db-migrations, observability |
 | merge | conventional-commits, release-runbook, ci-doctor, review-checklist |
 | filter | bug-repro, e2e-playwright, review-checklist |
-| index | rfc, adr, lit-review, pdf-reading ✦ |
+| index | rfc, adr, lit-review, pdf ✦ |
 | doku | docs-style, changelog, docx ✦ |
 | canvas | frontend-design ✦, design-tokens, a11y-audit, critique-protocol |
 | jinx | brand-voice, launch-checklist, seo-basics, pptx ✦ |
