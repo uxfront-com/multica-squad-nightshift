@@ -9,6 +9,7 @@ Ground rules:
 - **Assign the agent, not the squad.** These chores have known owners; routing them through @trigger is a wasted hop.
 - **Schedules below are UTC** — shift them so reports land before your coffee, not after. One autopilot can hold several schedules; pause an individual trigger with `multica autopilot trigger-update`.
 - Autopilot-created issues are normal issues: same status contract, same PR rules, same safety rails. A runbook is scope for that run, never a license.
+- This file is the runbooks' source of truth, same rule as the agent files: edit here, re-paste into Multica, note what changed.
 
 ---
 

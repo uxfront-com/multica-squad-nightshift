@@ -36,7 +36,7 @@ Bring-a-decision is the house style: expect stack-ranked options with trade-offs
 
 ## When behavior drifts
 
-1. Fix the file (agent file / `_shared-protocol.md` / `_team-instructions.md` / squad Instructions) — the files are the source of truth, in git.
+1. Fix the file (agent file / `_shared-protocol.md` / `_team-instructions.md` / squad Instructions / autopilot runbooks in `autopilots.md`) — the files are the source of truth, in git.
 2. Re-paste into Multica; refresh `CLAUDE.md` in the repo if the constitution changed.
 3. Rerun the matching test in `acceptance-tests.md`.
 Same failure across two agents ⇒ fix the shared layer once, not the agents twice. And per Anthropic's class-5 guidance: prefer one crisp principle or a mechanical guardrail (`repo-scaffold/`) over stacking reminders — then run `/doctor` in Claude Code occasionally to right-size `CLAUDE.md` and the skills.
