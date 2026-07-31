@@ -1,0 +1,7 @@
+# Review routing without anyone remembering.
+# With branch protection's "require 1 approval", ownership here makes the
+# Operator (or a trusted human) a required reviewer on agent PRs.
+# Replace the handle; add path-specific rows as the repo grows.
+
+* @YOUR-GITHUB-HANDLE
+/docs/adrs/ @YOUR-GITHUB-HANDLE

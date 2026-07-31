@@ -1,0 +1,25 @@
+# Repo Scaffold — the environment enforces what the instructions request
+
+Prompts drift; guardrails don't. Copy this folder's contents into the target repository so the norms in the agent instructions are *mechanically* required, not politely requested.
+
+```
+.github/pull_request_template.md      → every PR arrives in What/Why/Proof shape
+.github/ISSUE_TEMPLATE/               → bug + feature intake match what the agents expect
+.github/workflows/pr-title-lint.yml   → Conventional Commits enforced on PR titles (squash-merge = the commit)
+.github/CODEOWNERS                    → review routing happens without anyone remembering
+docs/adrs|rfcs|product/               → the trees the skills assume exist (adr, rfc, prd)
+```
+
+## Branch protection (GitHub → Settings → Branches → protect `main`)
+
+Do this once; it converts "never push to main" from a rule into an impossibility:
+
+- [ ] Require a pull request before merging · require **1 approval**
+- [ ] Require status checks to pass: **PR title lint** + your CI job(s)
+- [ ] Block force pushes · restrict deletions
+- [ ] (Recommended) Squash merging only + require linear history — the linted PR title becomes the commit, so the changelog automation stays clean
+- [ ] Apply the same protection to release branches if you cut them
+
+## Least-privilege reminder
+
+Agents get their own machine credentials: single-repo PATs with `contents:write` + `pull_requests:write`, no admin, no secrets access. If an agent reports `🔶 Blocked — cannot push/open PR`, this checklist is where the answer usually lives.
