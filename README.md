@@ -27,7 +27,7 @@ This pack contains everything needed to stand the crew up in [Multica](https://m
 
 ## Squad architecture
 
-One squad, one leader. Multica squads are routing: assign an issue to **NIGHTSHIFT** and the leader agent — **@trigger** — reads it, @-mentions the best member, records its evaluation, and stops. Everyone else is a member; nobody else carries leader duties.
+One squad, one leader. Multica squads are routing: assign an issue to **NIGHTSHIFT** and the leader agent — **@trigger** — reads it, moves the parent to `in_progress`, @-mentions the best member, records its evaluation, and stops; the parent reaches `in_review` only when the whole outcome is met. Multica's built-in Squad Operating Protocol enforces exactly this loop — the routing map below rides on top of it. Everyone else is a member; nobody else carries leader duties.
 
 ```
 NIGHTSHIFT  (the whole crew)   leader: @trigger
@@ -38,7 +38,7 @@ NIGHTSHIFT  (the whole crew)   leader: @trigger
 
 **Default habit:** assign new issues to **NIGHTSHIFT** and let @trigger route. @-mention an individual agent directly when you already know exactly who you need.
 
-Two Multica behaviors worth knowing: mentioning the squad in a comment triggers @trigger without changing the assignee (good for "who should own this?"), and an explicit @-mention of a specific agent routes past the leader entirely — @trigger is built not to butt in on deliberate handoffs.
+Three Multica behaviors worth knowing: mentioning the squad in a comment triggers @trigger without changing the assignee (good for "who should own this?"). A *human's* explicit @-mention of a specific agent routes past the leader entirely, while one agent's handoff comment to another still wakes @trigger to observe — standing down (`no_action`) is its trained move, so deliberate handoffs stay clean either way. And mentions only fire when posted: editing an @ into an existing comment triggers nobody.
 
 ### Squad Instructions (paste into NIGHTSHIFT's *Instructions* field)
 
