@@ -39,12 +39,14 @@ Bring-a-decision is the house style: expect stack-ranked options with trade-offs
 3. Rerun the matching test in `acceptance-tests.md`.
 Same failure across two agents ⇒ fix the shared layer once, not the agents twice. And per Anthropic's class-5 guidance: prefer one crisp principle or a mechanical guardrail (`repo-scaffold/`) over stacking reminders — then run `/doctor` in Claude Code occasionally to right-size `CLAUDE.md` and the skills.
 
-## Ten-minute weekly hygiene
+## Ten-minute weekly hygiene (mostly on autopilot)
 
-- `@trigger — sweep: anything silent >7 days gets close/park/escalate.`
-- `@merge — flake + pipeline report: quarantine list, p50/p95, anything past the 30-day fix-or-delete line.`
-- Skim `docs/adrs/README.md` — did last week's decisions get filed?
-- Glance at runtime spend/queue depth; tune concurrency before it tunes you.
+The sweeps and reports below ship as automations — wire `autopilots.md` once and this section becomes reading their issues. Manual versions, for while you haven't:
+
+- `@trigger — sweep: anything silent >7 days gets close/park/escalate.` *(autopilot #1)*
+- `@merge — flake + pipeline report: quarantine list, p50/p95, anything past the 30-day fix-or-delete line.` *(autopilot #2)*
+- Skim `docs/adrs/README.md` — did last week's decisions get filed? *(autopilot #4 files the gaps)*
+- Glance at runtime spend/queue depth (the Usage view); tune concurrency before it tunes you. *(stays yours — billing judgment doesn't delegate)*
 
 ## Escalations you should expect (they're features)
 
