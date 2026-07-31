@@ -2,7 +2,7 @@
 
 Twenty-five `SKILL.md` knowledge packs, one folder each, written to Anthropic's skill format: YAML frontmatter (`name` + a deliberately trigger-happy `description` — all "when to use" lives there), a dense body well under 500 lines, and bundled resources where they earn their place (`a11y-audit/scripts/axe-scan.mjs`).
 
-**Install into Multica:** keep this folder in a Git repo and use *import from GitHub* on each agent (Skills → Import), or paste bodies by hand. Attach per the matrix below (mirrors the main README).
+**Install into Multica:** keep this folder in a Git repo and import each skill on the workspace Skills page (*New skill → Import from URL*), or via CLI: `multica skill import --url <url-to-skill-folder>` — re-imports take `--on-conflict overwrite|rename|skip` (overwrite keeps the skill's ID and agent bindings; creator-only). Then attach per the matrix below (mirrors the main README); bindings toggle per-agent without deleting the skill. Claude Code can also read repo-level skills straight from `.claude/skills/` in a target repo — that path loads every skill's trigger line for every agent, where this pack deliberately prefers workspace skills with per-agent attachment: each specialist carries only its own craft.
 
 | Skill | Attached to | In one line |
 |---|---|---|

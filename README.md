@@ -70,12 +70,13 @@ Prereqs: a running Multica workspace, the daemon connected, and at least one sup
 
 **1. Create the ten agents** (Agents → + New, or `multica agent create`):
 - **Name:** the handle without `@` (e.g. `trigger`) — must be unique in the workspace.
-- **Runtime:** Claude Code. **Model:** see each agent file's suggestion (deep-reasoning tier (**Opus 5**) for `wire`, `signal`, `index`; fast/default for the rest — tune to your plan and budget).
+- **Description:** the blurb at the top of each agent file. Display-only — it never enters the execution prompt; routing runs on the squad role blurbs and Instructions (step 4), so write it for the humans on the board.
+- **Runtime:** Claude Code. **Model:** see each agent file's suggestion (deep-reasoning tier (**Opus 5**) for `wire`, `signal`, `index`; fast/default for the rest — tune to your plan and budget). **Thinking level:** Multica exposes it per agent — raise it for the deep-reasoning trio, keep default elsewhere.
 - **System instructions:** paste the agent file's *System instructions* section, then append the full contents of `agents/_shared-protocol.md`.
 - **Visibility:** Workspace. **Concurrency:** per the agent file (note `merge` runs deliberately low at 2–3 so release operations serialize).
 - **Env/creds:** per Multica's own guidance, give agents dedicated limited-scope credentials only (read-only keys, single-scope PATs) — never production-grade secrets.
 
-**2. Attach skills** (per the matrix below). Import Anthropic's public skills from their GitHub skills repo via Multica's *import from GitHub*; the custom ones ship with this pack under `skills/` — push them to a repo and import the same way (each skill is a folder with a `SKILL.md`).
+**2. Attach skills** (per the matrix below). Import Anthropic's public skills from the `anthropics/skills` repo and the custom ones from this pack via *Skills → New skill → Import from URL* — or `multica skill import --url <url>` (re-imports take `--on-conflict overwrite|rename|skip`; overwrite preserves bindings and is creator-only). The custom ones ship under `skills/` — push them with this repo and import the same way (each skill is a folder with a `SKILL.md`). Bindings are per-agent and toggle on/off without deleting the skill.
 
 **3. Connect MCP servers** per agent (matrix below). Least privilege throughout — `filter` gets read-only DB access, `signal` write access only if migrations are truly in scope.
 

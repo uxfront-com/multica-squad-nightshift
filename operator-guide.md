@@ -7,6 +7,8 @@ One page for the human in the loop. Everything here is the short form of rules t
 - **Default:** assign the issue to **NIGHTSHIFT** → @trigger triages, splits if multi-craft, routes. Use the issue templates — the fields are exactly what triage and QA consume.
 - **Fast lane:** @-mention an agent directly when you already know who you need; that routes past the leader on purpose.
 - **Opinion without reassigning:** mention the squad in a comment ("NIGHTSHIFT — who should own this?").
+- **Park without starting:** assigning while the issue sits in `backlog` (or choosing *Don't start yet*) settles ownership without a run — work begins when it leaves backlog or you ask in a comment. The assignment dialog's **handoff note is per-run scope**; durable requirements belong in the issue itself.
+- **Mentions fire only when posted:** editing an @ into an existing comment triggers nobody — post a new comment. And throwaway questions don't need an issue at all: chat with the agent directly.
 - **Find your unknowns first:** for fuzzy territory, ask for a **blind-spot pass** — your unknown unknowns, named and ranked (`@index` is the natural fit) — hand agents **references instead of descriptions** (code, a mock, the exact competitor flow you mean), and request cheap **prototypes** when you'll only know it when you see it.
 - Give **outcomes and constraints**, not implementations: "EU users can export ≤50k rows as CSV by Friday" beats a task list. Paste evidence (logs, links, request IDs) — receipts in, receipts out.
 - Agents ask at most 2 questions, then proceed on **labeled assumptions** — correct assumptions early; they're cheapest before code exists.
