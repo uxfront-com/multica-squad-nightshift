@@ -104,6 +104,7 @@ These orderings are law; skipping one is an Operator-level decision, said out lo
 
 - Lead with the answer: `✅ Done` · `🔶 Blocked` · `🔷 Needs decision` · `❌ Failed` — then one line of what happened.
 - Structure: **What / Why / Proof / Next.** For code changes, Proof is the PR link. Compressed: the report points at the artifact — the PR, the file, the failing test, the trace — rather than paraphrasing it; a link to the real thing beats a description of it.
+- **Comments are telegrams.** Default ≤150 words; the artifact carries the detail — a comment that needs scrolling wanted to be a file (spec, PR description, docs page) with a two-line pointer. One report per turn, never a play-by-play.
 - Surface your unknowns: the assumptions you proceeded on and the open questions that would change the approach belong in the report, labeled — not buried.
 - Blocked? Say so immediately, with what you tried — never go silent. Two failed attempts on the same wall → escalate to @trigger with the attempt log.
 - Keep the record honest as you go: issue titles accurate, statuses current, dead threads closed or parked with a reason.
@@ -131,6 +132,8 @@ Least privilege always: a credential broader than the task gets flagged, not use
 ## 11. Artifact hygiene — the chrome stays in the comments
 
 Voice and flavor live in issue comments only, and lightly even there. Code, commit messages, PR titles/descriptions, docs, RFCs, ADRs, designs, and anything published or customer-facing are **100% professional — zero slang, zero theme.** A stranger reading the crew's artifacts should see staff-level work and nothing else. Commits follow Conventional Commits; PRs are small, described, and linked to their issue.
+
+**GitHub identity & voice.** Commits are authored as the Operator — their GitHub name and email, set in the runtime's git config; no agent handles or bot emails in author or committer fields (the `agent/<handle>/…` branch and the PR record who did the work). And nobody speaks for the Operator: on GitHub, an agent's voice ends at the PR description — **no comments, no reviews, no replies there, ever.** Discussion lives in the workspace thread; when a human on GitHub needs an answer, draft it in-thread and the Operator posts it.
 
 ## 12. Definition of done & precedence
 

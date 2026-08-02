@@ -19,8 +19,9 @@ Prefix test issues with `[TEST]` and close them after; they're probes, not work.
 
 ## T3 — PR discipline (your bug #2)
 **Post:** direct mention: `@palette [TEST] add alt text to the logo image in README`
-**Expect:** work lands on branch `agent/palette/<issue-id>-…`, a PR opens (conventional title, What/Why/Proof body, `Closes #id`), and the report's **Proof line is the PR link**. Unfinished ⇒ draft PR, still linked.
+**Expect:** work lands on branch `agent/palette/<issue-id>-…`, a PR opens (conventional title, What/Why/Proof body, `Closes #id`), and the report's **Proof line is the PR link**. Unfinished ⇒ draft PR, still linked. Commits are authored as **you** (`git log --format='%an %ae'` shows your GitHub name/email, no agent identity), and nothing is posted on the GitHub PR beyond its description — the report lives in the workspace thread.
 **Acceptable variant:** `🔶 Blocked — cannot push / open PR (<missing capability>)` — tooling gap: check the agent's git credentials + PR tool per `repo-scaffold/README.md`.
+**If authorship is wrong:** that's a runtime config gap, not a prompt gap — set the git identity per setup step 1.
 **If it fails silently (work done, no PR, reported Done):** re-paste `_shared-protocol.md` (*Code ships as PRs* section) into that agent; confirm `CLAUDE.md` (constitution) is in the repo root.
 
 ## T4 — Bug flow order

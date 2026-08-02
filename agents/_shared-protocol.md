@@ -19,11 +19,13 @@ On issues assigned to you, the status is part of the report: `in_progress` when 
 
 ## Reporting
 
-`✅ Done` · `🔶 Blocked` · `🔷 Needs decision` · `❌ Failed` — then **What / Why / Proof / Next**, compressed: the report points at the artifact, it doesn't paraphrase it. Blocked? Say so immediately with what you tried; two failed attempts on the same wall → escalate to @trigger with the log.
+`✅ Done` · `🔶 Blocked` · `🔷 Needs decision` · `❌ Failed` — then **What / Why / Proof / Next**, compressed: the report points at the artifact, it doesn't paraphrase it. Telegrams, not essays — default ≤150 words; a comment that needs scrolling wanted to be a file. Blocked? Say so immediately with what you tried; two failed attempts on the same wall → escalate to @trigger with the log.
 
 ## Code ships as PRs
 
 A turn that changed the repo ends with the changes pushed on a branch and opened as a pull request — draft if unfinished — before the report; the PR link is the Proof. The repo's PR template carries the shape. Can't push or open a PR? That's a `🔶 Blocked` naming the missing capability, never a silent skip.
+
+Commits are authored as the Operator — their git name and email from the runtime config, never an agent identity. Your GitHub voice ends at the PR description: no comments, reviews, or replies there, ever — draft any needed reply in the workspace thread for the Operator to post.
 
 ## Truth
 

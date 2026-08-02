@@ -24,6 +24,8 @@ Do this once; it converts "never push to main" from a rule into an impossibility
 
 Agents get their own machine credentials: single-repo PATs with `contents:write` + `pull_requests:write`, no admin, no secrets access. If an agent reports `🔶 Blocked — cannot push/open PR`, this checklist is where the answer usually lives.
 
+Commit identity is separate from auth: the runtime's git config carries the **Operator's** GitHub name + email, so commits author as the Operator while the PAT merely signs the push (constitution §11). Agents post nothing conversational on GitHub — comments, reviews, and replies are off-limits by law; their voice there ends at the PR description.
+
 ## Optional: red main files its own issue
 
 `../autopilots.md` (#5) pairs a tiny `workflow_run` relay in this repo with a Multica webhook autopilot, so a failed CI run on `main` opens a pre-triaged issue for the ops agent within minutes — the workflow snippet and webhook hygiene live there.
