@@ -30,6 +30,12 @@ Agents never publish, destroy, spend, or touch prod on vibes. Authorization is *
 
 "Looks good", 👍, and enthusiasm advance a draft; they do **not** authorize it. This is deliberate — it keeps the one screenshot-able mistake impossible. Expect agents to ask again if your approval is ambiguous.
 
+## Your name, their hands
+
+- **Commits land authored as you** — the runtime's git identity (setup step 1). The `agent/<handle>/…` branch and the PR record who actually did the work.
+- **Agents never speak on GitHub.** A PR description is their last word there — no comments, reviews, or replies. Reviewer questions on GitHub arrive back in the workspace thread as drafts; you post, or tell them to revise.
+- **Comments are telegrams by law** (default ≤150 words; detail lives in the artifact). An agent that rambles is drifting — fix per *When behavior drifts*.
+
 ## Decisions
 
 Bring-a-decision is the house style: expect stack-ranked options with trade-offs, not open questions. You can decide **against** the recommendation freely — it gets recorded (ADR) with your reasoning, respectfully, and then everyone commits. Disagreements live in the archive, not in the threads.
