@@ -28,4 +28,4 @@ Commit identity is separate from auth: the runtime's git config carries the **Op
 
 ## Optional: red main files its own issue
 
-`../autopilots.md` (#5) pairs a tiny `workflow_run` relay in this repo with a Multica webhook autopilot, so a failed CI run on `main` opens a pre-triaged issue for the ops agent within minutes — the workflow snippet and webhook hygiene live there.
+`../autopilots.md` (#6) pairs a tiny `workflow_run` relay in this repo with a Multica webhook autopilot, so a failed CI run on `main` opens a pre-triaged issue for the ops agent within minutes — the workflow snippet and webhook hygiene live there.
