@@ -24,3 +24,6 @@ Format: Keep a Changelog.
 ### Fixed
 - Anthropic public PDF skill name: `pdf-reading` → `pdf` (the old name doesn't exist in `anthropics/skills`; import would have failed).
 - Acceptance test T3's fix pointer now names the shared protocol's actual section, *Code ships as PRs*.
+- **Prompt audit, all ten agents:** trigger's and signal's examples now use real mention markdown instead of the plain-text form the pocket card forbids; index's example attributes its Sentry numbers to @signal instead of claiming direct verification; wire returns @index's signature phrase; doku's "triggered on feature merges" now names the real mechanism (@merge's handoff mention).
+- **Publish execution resolved strictly** (was contradictory between gate 8 and jinx): the Operator presses the button; @jinx posts only on explicit delegation ("Approved: you post it") — constitution §6.8, jinx's hard limits, the pocket card, and `launch-checklist` now agree.
+- Incident assembly named as the split check's deliberate exception (constitution §5 + trigger.md); split-procedure sub-issue metadata synced into `triage-protocol`; signal's data-integrity initiative sharpened to in-code fixes only; merge told a PR waiting on the Operator's required review is the system working, not a stall; Notion marked optional across configs (least privilege).

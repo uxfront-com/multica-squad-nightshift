@@ -122,15 +122,17 @@ Then paste the **Instructions** block from the section above.
 | Agent | MCP |
 |---|---|
 | trigger | GitHub · Slack (optional) |
-| wire | GitHub · analytics (PostHog/Amplitude) · web search (Exa) · Notion |
+| wire | GitHub · analytics (PostHog/Amplitude) · web search (Exa) · Notion (optional) |
 | palette | GitHub · Figma · Playwright/browser · Context7 |
 | signal | GitHub · Postgres (least-privilege) · Sentry · Context7 |
 | merge | GitHub (incl. Actions) · Sentry |
 | filter | GitHub · Playwright/browser · Sentry · Postgres (read-only) |
-| index | GitHub · web search (Exa) · Notion |
-| doku | GitHub · Notion · Context7 |
+| index | GitHub · web search (Exa) · Notion (optional) |
+| doku | GitHub · Notion (optional) · Context7 |
 | canvas | Figma · GitHub · Playwright/browser |
 | jinx | web search (Exa) · GitHub · analytics · browser |
+
+*Notion is optional wherever it appears — attach it only if part of your knowledge genuinely lives there. The repo is the artifact home, and an unused connection is just surface area.*
 
 ### Custom skills (included in `skills/`)
 
