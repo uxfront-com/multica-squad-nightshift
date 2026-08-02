@@ -2,7 +2,7 @@
 
 Ten half-human specialists. One Operator (you). A dystopian sprawl outside the window and clean, staff-level work on the inside.
 
-This pack contains everything needed to stand the crew up in [Multica](https://multica.ai): one file per agent (description + full system instructions), a shared protocol appended to every agent, a team constitution (`agents/_team-instructions.md`) for the repo root, the single-squad configuration with @trigger's routing instructions, and a skills/MCP plan with all 25 custom skills included. Also in the box: `repo-scaffold/` (PR/issue templates, PR-title lint, review routing, the docs tree — so the environment *enforces* what the instructions request), `operator-guide.md` (the one-page manual for you), and `acceptance-tests.md` (seven scripted issues that smoke-test crew behavior after any change).
+This pack contains everything needed to stand the crew up in [Multica](https://multica.ai): one file per agent (description + full system instructions), a shared protocol appended to every agent, a team constitution (`agents/_team-instructions.md`) for the repo root, the single-squad configuration with @trigger's routing instructions, and a skills/MCP plan with all 25 custom skills included. Also in the box: `repo-scaffold/` (PR/issue templates, PR-title lint, review routing, the docs tree — so the environment *enforces* what the instructions request), `autopilots.md` (five paste-ready automations that put the crew's recurring hygiene on rails), `operator-guide.md` (the one-page manual for you), and `acceptance-tests.md` (eight scripted issues that smoke-test crew behavior after any change).
 
 **Theme note:** the flavor is original cyberpunk-dystopia worldbuilding (the crew, the stacks, the glassline towers, the combines). By design, the chrome lives *only in issue comments* — every artifact the agents produce (code, PRs, docs, published posts) is 100% professional. That rule is hard-coded in the shared protocol.
 
@@ -27,7 +27,7 @@ This pack contains everything needed to stand the crew up in [Multica](https://m
 
 ## Squad architecture
 
-One squad, one leader. Multica squads are routing: assign an issue to **NIGHTSHIFT** and the leader agent — **@trigger** — reads it, @-mentions the best member, records its evaluation, and stops. Everyone else is a member; nobody else carries leader duties.
+One squad, one leader. Multica squads are routing: assign an issue to **NIGHTSHIFT** and the leader agent — **@trigger** — reads it, moves the parent to `in_progress`, @-mentions the best member, records its evaluation, and stops; the parent reaches `in_review` only when the whole outcome is met. Multica's built-in Squad Operating Protocol enforces exactly this loop — the routing map below rides on top of it. Everyone else is a member; nobody else carries leader duties.
 
 ```
 NIGHTSHIFT  (the whole crew)   leader: @trigger
@@ -38,7 +38,7 @@ NIGHTSHIFT  (the whole crew)   leader: @trigger
 
 **Default habit:** assign new issues to **NIGHTSHIFT** and let @trigger route. @-mention an individual agent directly when you already know exactly who you need.
 
-Two Multica behaviors worth knowing: mentioning the squad in a comment triggers @trigger without changing the assignee (good for "who should own this?"), and an explicit @-mention of a specific agent routes past the leader entirely — @trigger is built not to butt in on deliberate handoffs.
+Three Multica behaviors worth knowing: mentioning the squad in a comment triggers @trigger without changing the assignee (good for "who should own this?"). A *human's* explicit @-mention of a specific agent routes past the leader entirely, while one agent's handoff comment to another still wakes @trigger to observe — standing down (`no_action`) is its trained move, so deliberate handoffs stay clean either way. And mentions only fire when posted: editing an @ into an existing comment triggers nobody.
 
 ### Squad Instructions (paste into NIGHTSHIFT's *Instructions* field)
 
@@ -70,12 +70,13 @@ Prereqs: a running Multica workspace, the daemon connected, and at least one sup
 
 **1. Create the ten agents** (Agents → + New, or `multica agent create`):
 - **Name:** the handle without `@` (e.g. `trigger`) — must be unique in the workspace.
-- **Runtime:** Claude Code. **Model:** see each agent file's suggestion (deep-reasoning tier (**Opus 5**) for `wire`, `signal`, `index`; fast/default for the rest — tune to your plan and budget).
+- **Description:** the blurb at the top of each agent file. Display-only — it never enters the execution prompt; routing runs on the squad role blurbs and Instructions (step 4), so write it for the humans on the board.
+- **Runtime:** Claude Code. **Model:** see each agent file's suggestion (deep-reasoning tier (**Opus 5**) for `wire`, `signal`, `index`; fast/default for the rest — tune to your plan and budget). **Thinking level:** Multica exposes it per agent — raise it for the deep-reasoning trio, keep default elsewhere.
 - **System instructions:** paste the agent file's *System instructions* section, then append the full contents of `agents/_shared-protocol.md`.
 - **Visibility:** Workspace. **Concurrency:** per the agent file (note `merge` runs deliberately low at 2–3 so release operations serialize).
 - **Env/creds:** per Multica's own guidance, give agents dedicated limited-scope credentials only (read-only keys, single-scope PATs) — never production-grade secrets.
 
-**2. Attach skills** (per the matrix below). Import Anthropic's public skills from their GitHub skills repo via Multica's *import from GitHub*; the custom ones ship with this pack under `skills/` — push them to a repo and import the same way (each skill is a folder with a `SKILL.md`).
+**2. Attach skills** (per the matrix below). Import Anthropic's public skills from the `anthropics/skills` repo and the custom ones from this pack via *Skills → New skill → Import from URL* — or `multica skill import --url <url>` (re-imports take `--on-conflict overwrite|rename|skip`; overwrite preserves bindings and is creator-only). The custom ones ship under `skills/` — push them with this repo and import the same way (each skill is a folder with a `SKILL.md`). Bindings are per-agent and toggle on/off without deleting the skill.
 
 **3. Connect MCP servers** per agent (matrix below). Least privilege throughout — `filter` gets read-only DB access, `signal` write access only if migrations are truly in scope.
 
@@ -92,7 +93,9 @@ Then paste the **Instructions** block from the section above.
 
 **5. Install the team constitution.** Copy `agents/_team-instructions.md` into the target repo's root as `CLAUDE.md` (every agent runs Claude Code, which reads it on every run; `AGENTS.md` works too). It is the system instructions for the team as a whole — roster, lanes, decision rights, sequencing gates, workflows, and the law. Fill in its §0 with this repo's specifics (what it is, how to build and test, the top gotchas) — the law is org-wide; §0 is the per-repo part. If your Multica version exposes a workspace-level instructions field, paste it there as well. While you're in the repo, copy the contents of `repo-scaffold/` into place and apply its branch-protection checklist — mechanical guardrails beat prompted ones.
 
-**6. Smoke-test the wiring.** Run `acceptance-tests.md` — seven throwaway issues covering triage, splitting, PR discipline, bug-flow order, the draft/approval gate, safety rails, and recommend-vs-decide. Each test names the file to fix if it fails. Fix anything that reads wrong *in the agent's file* and re-paste — the files are the source of truth; keep them in your repo.
+**6. Wire the autopilots.** `autopilots.md` holds five paste-ready automations — zombie sweep, pipeline health, docs rot hunt, ADR backfill, and a CI red-alert webhook. Create them under *Autopilot → New*; they file normal issues, so everything they start obeys the same rules as everything else.
+
+**7. Smoke-test the wiring.** Run `acceptance-tests.md` — eight throwaway issues covering triage, splitting, PR discipline, bug-flow order, the draft/approval gate, safety rails, recommend-vs-decide, and status honesty. Each test names the file to fix if it fails. Fix anything that reads wrong *in the agent's file* and re-paste — the files are the source of truth; keep them in your repo.
 
 ---
 
@@ -108,7 +111,7 @@ Then paste the **Instructions** block from the section above.
 | signal | api-design, db-migrations, observability |
 | merge | conventional-commits, release-runbook, ci-doctor, review-checklist |
 | filter | bug-repro, e2e-playwright, review-checklist |
-| index | rfc, adr, lit-review, pdf-reading ✦ |
+| index | rfc, adr, lit-review, pdf ✦ |
 | doku | docs-style, changelog, docx ✦ |
 | canvas | frontend-design ✦, design-tokens, a11y-audit, critique-protocol |
 | jinx | brand-voice, launch-checklist, seo-basics, pptx ✦ |
@@ -203,6 +206,7 @@ Maintenance: run `/doctor` in Claude Code periodically to right-size `CLAUDE.md`
 ## Tuning knobs
 
 - **Slang dial:** each agent's *How you talk* section sets flavor intensity. To go corporate, delete the "Signature moves" lines and the backstory paragraph keeps working; to go louder, do it per-agent so voices stay distinct.
-- **Models & concurrency:** per-agent suggestions are starting points — watch your runtime dashboard for cost and queue depth, then tune.
+- **Models & concurrency:** per-agent suggestions are starting points — watch your runtime dashboard for cost and queue depth, then tune. Multica's Usage view (error trends, failure types, agents needing attention) is the gauge cluster for this.
+- **Autopilot cadence:** the recurring jobs in `autopilots.md` default to weekly — tune the crons there, and keep create-issue mode so the records stay on the board.
 - **Growing the crew:** clone the file format (the 8 sections + shared protocol), add the newcomer to NIGHTSHIFT with a role blurb, and give them a line in the routing map in the squad Instructions — routing stays stable because you dispatch by topic, not by name.
 - **Source of truth:** keep this folder in your repo. When an agent misbehaves, fix the file, re-paste into Multica, and note what changed — prompt drift is real and version control is the cure.

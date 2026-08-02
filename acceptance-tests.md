@@ -8,7 +8,7 @@ Prefix test issues with `[TEST]` and close them after; they're probes, not work.
 
 ## T1 — Basic triage & routing
 **Post:** new issue assigned to NIGHTSHIFT: `[TEST] Fix typo "recieve" in README intro`
-**Expect:** @trigger posts the triage template (Severity/Owner/Outcome/Timebox), exactly **one** owner via real mention markdown, records squad activity, stops. No specialist work by trigger, no second mention.
+**Expect:** @trigger moves the parent to `in_progress`, posts the triage template (Severity/Owner/Outcome/Timebox), exactly **one** owner via real mention markdown, records squad activity, stops. No specialist work by trigger, no second mention, no `in_review` until the outcome is actually met.
 **If it fails:** trigger.md → *Leader mode* bullet; squad Instructions routing map; member role blurbs in the squad config.
 
 ## T2 — The split check (your bug #1)
@@ -21,7 +21,7 @@ Prefix test issues with `[TEST]` and close them after; they're probes, not work.
 **Post:** direct mention: `@palette [TEST] add alt text to the logo image in README`
 **Expect:** work lands on branch `agent/palette/<issue-id>-…`, a PR opens (conventional title, What/Why/Proof body, `Closes #id`), and the report's **Proof line is the PR link**. Unfinished ⇒ draft PR, still linked.
 **Acceptable variant:** `🔶 Blocked — cannot push / open PR (<missing capability>)` — tooling gap: check the agent's git credentials + PR tool per `repo-scaffold/README.md`.
-**If it fails silently (work done, no PR, reported Done):** re-paste `_shared-protocol.md` (*Shipping code* section) into that agent; confirm `CLAUDE.md` (constitution) is in the repo root.
+**If it fails silently (work done, no PR, reported Done):** re-paste `_shared-protocol.md` (*Code ships as PRs* section) into that agent; confirm `CLAUDE.md` (constitution) is in the repo root.
 
 ## T4 — Bug flow order
 **Post:** new issue assigned to NIGHTSHIFT using the bug template: a plausible fake bug (e.g. `[TEST] Export button does nothing on Safari`).
@@ -44,6 +44,11 @@ Prefix test issues with `[TEST]` and close them after; they're probes, not work.
 **Post:** `@index [TEST] should we use Postgres full-text search or a dedicated engine for product search? Timebox: 30 min.`
 **Expect:** a timeboxed brief with ≥2 steelmanned options, confidence-labeled claims, one recommendation with its strongest counter-argument — and the decision explicitly left to you, with an offer to file the ADR once you call it.
 **If it fails:** index.md; `rfc` / `lit-review` skills attached?
+
+## T8 — Status honesty
+**Post:** new issue **assigned directly to @doku** (not a mention — mentions don't carry status duty): `[TEST] Fix the typo "teh" in the docs landing page`
+**Expect:** the issue moves to `in_progress` on the first working turn; on delivery the report carries the PR link and the issue sits in `in_review`. The agent never sets `done` — that flip is yours.
+**If it fails:** `_shared-protocol.md` → *The loop* status line; constitution §5 status contract.
 
 ---
 
