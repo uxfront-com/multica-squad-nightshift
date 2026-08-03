@@ -1,6 +1,6 @@
 # NIGHTSHIFT — Autopilots (recurring ops on rails)
 
-Multica Autopilots turn the crew's recurring hygiene into scheduled work: cron in, triaged issue out, nothing depending on the Operator remembering. Five earn their keep from day one — four on schedules, one on a webhook.
+Multica Autopilots turn the crew's recurring hygiene into scheduled work: cron in, triaged issue out, nothing depending on the Operator remembering. Six earn their keep from day one — five on schedules, one on a webhook. (Multica agents have no idle time — they run only when triggered — so any "when idle" duty in an agent file needs a schedule here to actually exist.)
 
 Each block is paste-ready: **Autopilot → New** (or `multica autopilot --help`), assignee as listed, **Execution mode: Create issue** for all five — the work should live where the crew works: reviewable, commentable, on the record. Create-issue mode also queues gracefully when a runtime is offline instead of skipping the run. Add yourself as **subscriber** wherever you want the ping.
 
@@ -45,7 +45,15 @@ Ground rules:
 
 > Review the week's closed issues and merged PRs for consequential decisions that never got an ADR — including decisions made against a recommendation and decisions *not* to do something. File the missing records per your one-day SLA; late beats absent. Read `docs/adrs/README.md` first so numbering stays clean. Post the list: filed (links) / no gaps found.
 
-## 5. CI red-alert triage — `@merge`, webhook
+## 5. Janitor sweep — `@filter`, twice monthly
+
+**Schedule:** `0 7 1,15 * *` (1st and 15th, 07:00)
+
+**Runbook:**
+
+> Janitor sweep, per your cadence rules: dead code paths, stale feature flags (at 100% for a month = dead code with an on switch), skipped or quarantined tests older than 30 days, orphan fixtures. One finding = one small issue or one small PR — never a mega-cleanup — and anything ambiguous gets an issue, not a deletion. Summarize here: removed (PR links) / filed (issue links) / clean.
+
+## 6. CI red-alert triage — `@merge`, webhook
 
 **Trigger:** Webhook. Optional Multica-side event filter: event `ci.failed` (the sender below only fires on real failures, so the filter is belt-and-braces).
 

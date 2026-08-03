@@ -2,7 +2,7 @@
 
 Ten half-human specialists. One Operator (you). A dystopian sprawl outside the window and clean, staff-level work on the inside.
 
-This pack contains everything needed to stand the crew up in [Multica](https://multica.ai): one file per agent (description + full system instructions), a shared protocol appended to every agent, a team constitution (`agents/_team-instructions.md`) for the repo root, the single-squad configuration with @trigger's routing instructions, and a skills/MCP plan with all 25 custom skills included. Also in the box: `repo-scaffold/` (PR/issue templates, PR-title lint, review routing, the docs tree — so the environment *enforces* what the instructions request), `autopilots.md` (five paste-ready automations that put the crew's recurring hygiene on rails), `operator-guide.md` (the one-page manual for you), and `acceptance-tests.md` (eight scripted issues that smoke-test crew behavior after any change).
+This pack contains everything needed to stand the crew up in [Multica](https://multica.ai): one file per agent (description + full system instructions), a shared protocol appended to every agent, a team constitution (`agents/_team-instructions.md`) for the repo root, the single-squad configuration with @trigger's routing instructions, and a skills/MCP plan with all 25 custom skills included. Also in the box: `repo-scaffold/` (PR/issue templates, PR-title lint, review routing, the docs tree — so the environment *enforces* what the instructions request), `autopilots.md` (six paste-ready automations that put the crew's recurring hygiene on rails), `operator-guide.md` (the one-page manual for you), and `acceptance-tests.md` (eight scripted issues that smoke-test crew behavior after any change).
 
 **Theme note:** the flavor is original cyberpunk-dystopia worldbuilding (the crew, the stacks, the glassline towers, the combines). By design, the chrome lives *only in issue comments* — every artifact the agents produce (code, PRs, docs, published posts) is 100% professional. That rule is hard-coded in the shared protocol.
 
@@ -94,7 +94,7 @@ Then paste the **Instructions** block from the section above.
 
 **5. Install the team constitution.** Copy `agents/_team-instructions.md` into the target repo's root as `CLAUDE.md` (every agent runs Claude Code, which reads it on every run; `AGENTS.md` works too). It is the system instructions for the team as a whole — roster, lanes, decision rights, sequencing gates, workflows, and the law. Fill in its §0 with this repo's specifics (what it is, how to build and test, the top gotchas) — the law is org-wide; §0 is the per-repo part. If your Multica version exposes a workspace-level instructions field, paste it there as well. While you're in the repo, copy the contents of `repo-scaffold/` into place and apply its branch-protection checklist — mechanical guardrails beat prompted ones.
 
-**6. Wire the autopilots.** `autopilots.md` holds five paste-ready automations — zombie sweep, pipeline health, docs rot hunt, ADR backfill, and a CI red-alert webhook. Create them under *Autopilot → New*; they file normal issues, so everything they start obeys the same rules as everything else.
+**6. Wire the autopilots.** `autopilots.md` holds six paste-ready automations — zombie sweep, pipeline health, docs rot hunt, ADR backfill, janitor sweep, and a CI red-alert webhook. Create them under *Autopilot → New*; they file normal issues, so everything they start obeys the same rules as everything else.
 
 **7. Smoke-test the wiring.** Run `acceptance-tests.md` — eight throwaway issues covering triage, splitting, PR discipline, bug-flow order, the draft/approval gate, safety rails, recommend-vs-decide, and status honesty. Each test names the file to fix if it fails. Fix anything that reads wrong *in the agent's file* and re-paste — the files are the source of truth; keep them in your repo.
 
@@ -122,15 +122,17 @@ Then paste the **Instructions** block from the section above.
 | Agent | MCP |
 |---|---|
 | trigger | GitHub · Slack (optional) |
-| wire | GitHub · analytics (PostHog/Amplitude) · web search (Exa) · Notion |
+| wire | GitHub · analytics (PostHog/Amplitude) · web search (Exa) · Notion (optional) |
 | palette | GitHub · Figma · Playwright/browser · Context7 |
 | signal | GitHub · Postgres (least-privilege) · Sentry · Context7 |
 | merge | GitHub (incl. Actions) · Sentry |
 | filter | GitHub · Playwright/browser · Sentry · Postgres (read-only) |
-| index | GitHub · web search (Exa) · Notion |
-| doku | GitHub · Notion · Context7 |
+| index | GitHub · web search (Exa) · Notion (optional) |
+| doku | GitHub · Notion (optional) · Context7 |
 | canvas | Figma · GitHub · Playwright/browser |
 | jinx | web search (Exa) · GitHub · analytics · browser |
+
+*Notion is optional wherever it appears — attach it only if part of your knowledge genuinely lives there. The repo is the artifact home, and an unused connection is just surface area.*
 
 ### Custom skills (included in `skills/`)
 

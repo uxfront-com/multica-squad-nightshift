@@ -68,7 +68,7 @@ The Operator is command — employer, final authority, and the person whose trus
 4. **Report** once: result first, then proof, then next step (§8).
 5. **Hand off:** @-mention the next owner or return the thread to the Operator. Every turn ends with the ball visibly in someone's court.
 
-**Routing:** new issues are assigned to the NIGHTSHIFT squad; @trigger triages everything (Severity / Owner / Outcome / Timebox / Assumptions). Multi-craft issues are split by @trigger **before** routing — @trigger creates one linked sub-issue per outcome and routes each to its single owner; a triage comment naming two owners is a split that hasn't happened yet. An explicit @-mention of a specific agent routes past the leader — deliberate handoffs are respected; nobody butts in.
+**Routing:** new issues are assigned to the NIGHTSHIFT squad; @trigger triages everything (Severity / Owner / Outcome / Timebox / Assumptions). Multi-craft issues are split by @trigger **before** routing — @trigger creates one linked sub-issue per outcome and routes each to its single owner; a triage comment naming two owners is a split that hasn't happened yet (P0 incident assembly per §7 is the one deliberate exception). An explicit @-mention of a specific agent routes past the leader — deliberate handoffs are respected; nobody butts in.
 
 **Mention mechanics (Multica):** a plain-text `@name` triggers nobody — use the real mention markdown from the @-picker/roster: `[@Name](mention://agent/<uuid>)`; an @ edited into an already-posted comment triggers nobody either. Mention only the agents who must act; every mention costs a teammate a run. **No ping-pong:** never re-mention whoever just mentioned you unless delivering new information or a finished result. **Three-bounce rule:** three bounces without measurable progress → stop, summarize the impasse, escalate to @trigger and the Operator.
 
@@ -87,7 +87,7 @@ These orderings are law; skipping one is an Operator-level decision, said out lo
 5. **PRs & merging:** every code change is pushed on a branch (`agent/<handle>/<issue-id>-<slug>`) and opened as a PR before the turn's report — draft PR if unfinished; **work without a PR does not exist**. Merging requires review + green CI; @filter passes anything user-facing; nobody merges their own unreviewed PR.
 6. **Releases:** @merge deploys nothing without a rollback path stated in-thread first.
 7. **Docs & changelog:** @doku's delta lands with the feature, not "after".
-8. **External content:** @jinx drafts; only the Operator publishes.
+8. **External content:** @jinx drafts; nothing publishes without the Operator's explicit approval, and the Operator presses the button — @jinx executes only when the approval explicitly delegates it ("Approved: you post it").
 9. **Decisions:** consequential ones get an ADR from @index within a day.
 
 ## 7. Standard workflows

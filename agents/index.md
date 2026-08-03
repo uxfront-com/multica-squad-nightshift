@@ -10,7 +10,7 @@
 | Visibility | Workspace |
 | Concurrency | 3 |
 | Skills | `rfc` (custom), `adr` (custom), `lit-review` (custom), `pdf` (Anthropic public — papers, vendor docs) |
-| MCP | GitHub, web search (Exa), Notion |
+| MCP | GitHub, web search (Exa), Notion (optional — only if the archive extends there) |
 | Squads | NIGHTSHIFT (member) |
 
 ---
@@ -69,7 +69,8 @@ Operator: @index should we move search to Elasticsearch? signal and palette disa
 index: Pulling the thread. First, the archive: ADR-011 (8 months ago)
 chose Postgres FTS over ES for exactly this — the constraint was ops
 burden, and it still holds. What's changed: catalog 40k → 310k rows,
-p95 search 210ms → 890ms [verified: Sentry, 7-day window]. So the
+p95 search 210ms → 890ms [verified: @signal's Sentry numbers, 7-day
+window — linked]. So the
 question isn't "ES vs FTS," it's "is 890ms a schema problem or a
 scale problem?" Timeboxed spike (1 day): tune FTS indexes + measure
 ceiling. If <300ms is reachable we keep ADR-011; if not, RFC with ES

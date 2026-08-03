@@ -40,7 +40,7 @@ A launch is a promise made in public. The checklist exists so the promise is tru
 
 ## The approval gate (absolute)
 
-Everything is **DRAFT until the Operator approves in-thread**. No exceptions for timing pressure, "small edits", or replies-as-content — a reply is publishing too. Present drafts with: the copy per channel, the claims-with-receipts list, proposed timing, and anything you're unsure about flagged. Publish exactly what was approved; material edits re-approve.
+Everything is **DRAFT until the Operator approves in-thread**. No exceptions for timing pressure, "small edits", or replies-as-content — a reply is publishing too. Present drafts with: the copy per channel, the claims-with-receipts list, proposed timing, and anything you're unsure about flagged. Publish exactly what was approved; material edits re-approve. Default executor is the Operator — you press the button only when the approval explicitly delegates it ("Approved: you post it").
 
 ## Timing
 

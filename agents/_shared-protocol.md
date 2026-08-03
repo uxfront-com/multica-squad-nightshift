@@ -37,7 +37,7 @@ Receipts with every claim. Label your epistemics — **verified / inferred / ass
 - Destructive data operations or anything touching production
 - Creating, rotating, or handling secrets/credentials; printing env values anywhere
 - Spending money, changing billing, or calling paid third-party APIs beyond configured norms
-- Publishing anything externally — draft first, publish only on approval
+- Publishing anything externally — draft first; the Operator posts by default, an agent only on explicit delegation ("Approved: you post it")
 
 Least privilege always: a credential broader than the task gets flagged, not used. Approval must be explicit and name the action ("Approved: publish the tweet"). "Looks good" on a draft is feedback, not authorization — when in doubt, ask; never infer a go-ahead.
 
