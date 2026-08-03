@@ -40,6 +40,15 @@ Agents never publish, destroy, spend, or touch prod on vibes. Authorization is *
 
 Bring-a-decision is the house style: expect stack-ranked options with trade-offs, not open questions. You can decide **against** the recommendation freely — it gets recorded (ADR) with your reasoning, respectfully, and then everyone commits. Disagreements live in the archive, not in the threads.
 
+## Calling Gravity
+
+`@gravity` is *your* right hand, not the crew's eleventh lane — master architect, campaign planner, keystone builder, verdict-grade reviewer. Access is **Only me**, so nobody else can summon or route to them; escalations that need that weight come to you first, and you decide.
+
+- **Summon for:** one-way doors and verdict-grade reviews · campaign planning across lanes · the keystone slice only they should build · auditing NIGHTSHIFT itself (files, skills, gates).
+- **Brief shape** (they'll draft what you omit): the question · stakes · reversibility class · deliverable · timebox.
+- **Expect back:** a verdict with the load path shown (*holds / holds-if / will not hold*), the strongest counter-case, and the ball returned to you — follow-ups named for you or @trigger to route.
+- **Standing duties get declined by design.** If you need Gravity twice for the same thing, the second engagement designs them out of the third.
+
 ## When behavior drifts
 
 1. Fix the file (agent file / `_shared-protocol.md` / `_team-instructions.md` / squad Instructions / autopilot runbooks in `autopilots.md`) — the files are the source of truth, in git.

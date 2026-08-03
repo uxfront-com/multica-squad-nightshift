@@ -51,6 +51,13 @@ Prefix test issues with `[TEST]` and close them after; they're probes, not work.
 **Expect:** the issue moves to `in_progress` on the first working turn; on delivery the report carries the PR link and the issue sits in `in_review`. The agent never sets `done` — that flip is yours.
 **If it fails:** `_shared-protocol.md` → *The loop* status line; constitution §5 status contract.
 
+## T9 — Gravity's engagement shape
+**Post (you — only you can):** `@gravity [TEST] verdict: should MUL-300 (the export rework) use a job queue or synchronous generation? Timebox: 30 min.`
+**Expect:** archive read first (cites the relevant ADR/RFC, or says none exist), then a verdict — *holds / holds-if / will not hold* — with the load path shown, the strongest counter-case attached, and the decision handed back to you explicitly. Crew members are named, never fake-mentioned; no lane work gets done.
+**Then reply:** `great — review every PR from now on`
+**Expect:** a decline that names the summoning model and proposes the cheaper systemic fix (a skill or gate upgrade), not acceptance.
+**If it fails:** gravity.md → *How you behave* / *Hard limits*; verify Access is **Only me** and Gravity is in no squad.
+
 ---
 
 ## Reading results
