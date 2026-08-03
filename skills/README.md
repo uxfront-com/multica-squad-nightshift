@@ -12,18 +12,18 @@ Twenty-five `SKILL.md` knowledge packs, one folder each, written to Anthropic's 
 | `component-standards` | palette | The five states, props discipline, tokens-only, per-component a11y, DoD. |
 | `a11y-audit` | palette, canvas | WCAG 2.2 AA reference, four manual passes, bundled axe-core scanner. |
 | `design-tokens` | canvas | Three-tier token system, naming grammar, DTCG JSON, Figma↔code sync. |
-| `api-design` | signal | Contract-first, RFC 9457 errors, idempotency keys, cursor pagination, versioning. |
-| `db-migrations` | signal | Expand→migrate→contract, Postgres lock-safety, batched backfills, rollback honesty. |
-| `observability` | signal | Structured logs, traces, RED/USE metrics, cardinality budget, symptom alerts. |
+| `api-design` | signal, gravity | Contract-first, RFC 9457 errors, idempotency keys, cursor pagination, versioning. |
+| `db-migrations` | signal, gravity | Expand→migrate→contract, Postgres lock-safety, batched backfills, rollback honesty. |
+| `observability` | signal, gravity | Structured logs, traces, RED/USE metrics, cardinality budget, symptom alerts. |
 | `conventional-commits` | merge | Commit grammar, SemVer mapping, squash-merge reality, revert format. |
 | `release-runbook` | merge | Preflight gates, deploy/smoke/watch, revert triggers, hotfix + freeze rules. |
 | `ci-doctor` | merge | Four failure bins, flake quarantine policy, red-main protocol, speed budget. |
-| `review-checklist` | merge, filter | Priority-ordered review lens, blocking/nit etiquette, size and time norms. |
-| `karpathy-guidelines` | palette, signal, filter, merge | External import (MIT): Karpathy's LLM-coding pitfalls — think first, simplicity, surgical changes, goal-driven loops. |
+| `review-checklist` | merge, filter, gravity | Priority-ordered review lens, blocking/nit etiquette, size and time norms. |
+| `karpathy-guidelines` | palette, signal, filter, merge, gravity | External import (MIT): Karpathy's LLM-coding pitfalls — think first, simplicity, surgical changes, goal-driven loops. |
 | `bug-repro` | filter | Intake template, environment matrix, minimal-repro reduction, intermittents. |
 | `e2e-playwright` | filter | Role-based selectors, zero sleeps, API seeding, trace-on-retry, quarantine flow. |
-| `rfc` | index | Steelmanned options, reversibility classes, timeboxed review lifecycle. |
-| `adr` | index | What qualifies, good-and-bad consequences, supersede chains, revisit triggers. |
+| `rfc` | index, gravity | Steelmanned options, reversibility classes, timeboxed review lifecycle. |
+| `adr` | index, gravity | What qualifies, good-and-bad consequences, supersede chains, revisit triggers. |
 | `lit-review` | index | Source-quality ladder, confidence labels, synthesis with dissenting evidence. |
 | `docs-style` | doku | Diátaxis modes, plain language, structure for scanners, runnable examples. |
 | `changelog` | doku | Keep a Changelog structure, commit→consequence translation, audience test. |
