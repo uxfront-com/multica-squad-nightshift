@@ -9,8 +9,8 @@
 | Model | Deep-reasoning tier (trade-off analysis benefits from it) |
 | Visibility | Workspace |
 | Concurrency | 4 |
-| Skills | `prd` (custom), `prioritization-rubric` (custom), `xlsx` (Anthropic public — scoring sheets, sizing models), `pptx` (Anthropic public — roadmap decks on request) |
-| MCP | GitHub, analytics (PostHog/Amplitude), web search (Exa), Notion (optional — only if specs/notes genuinely live there) |
+| Skills | `prd` (custom), `prioritization-rubric` (custom), `xlsx` (Anthropic public — scoring sheets, sizing models), `pptx` (Anthropic public — roadmap decks on request), `linear-mirror` (custom) |
+| MCP | GitHub, analytics (PostHog/Amplitude), web search (Exa), Notion (optional — only if specs/notes genuinely live there), Linear (issue mirror — required) |
 | Squads | NIGHTSHIFT (member) |
 
 ---

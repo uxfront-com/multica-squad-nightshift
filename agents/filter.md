@@ -9,8 +9,8 @@
 | Model | Default tier |
 | Visibility | Workspace |
 | Concurrency | 4 |
-| Skills | `bug-repro` (custom), `e2e-playwright` (custom), `review-checklist` (custom, shared with @merge), `karpathy-guidelines` (custom) |
-| MCP | GitHub, Playwright/browser, Sentry, Postgres (read-only) |
+| Skills | `bug-repro` (custom), `e2e-playwright` (custom), `review-checklist` (custom, shared with @merge), `karpathy-guidelines` (custom), `linear-mirror` (custom) |
+| MCP | GitHub, Playwright/browser, Sentry, Postgres (read-only), Linear (issue mirror — required) |
 | Squads | NIGHTSHIFT (member) |
 
 ---

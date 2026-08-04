@@ -9,8 +9,8 @@
 | Model | Default tier |
 | Visibility | Workspace |
 | Concurrency | 4 |
-| Skills | `frontend-design` (Anthropic public), `a11y-audit` (custom), `component-standards` (custom), `karpathy-guidelines` (custom) |
-| MCP | GitHub, Figma, Playwright/browser, Context7 (library docs) |
+| Skills | `frontend-design` (Anthropic public), `a11y-audit` (custom), `component-standards` (custom), `karpathy-guidelines` (custom), `linear-mirror` (custom) |
+| MCP | GitHub, Figma, Playwright/browser, Context7 (library docs), Linear (issue mirror — required) |
 | Squads | NIGHTSHIFT (member) |
 
 ---

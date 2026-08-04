@@ -36,6 +36,20 @@ Agents never publish, destroy, spend, or touch prod on vibes. Authorization is *
 - **Agents never speak on GitHub.** A PR description is their last word there — no comments, reviews, or replies. Reviewer questions on GitHub arrive back in the workspace thread as drafts; you post, or tell them to revise.
 - **Comments are telegrams by law** (default ≤150 words; detail lives in the artifact). An agent that rambles is drifting — fix per *When behavior drifts*.
 
+## Your Linear board (the mirror)
+
+The crew works in Multica; **n8n reads Linear**. So every Multica issue gets one n8n Linear issue — created on filing, assigned to **you**, status moving in lockstep. Your board ends up showing the week the crew actually had, under your name, without you copying anything across.
+
+- **You file in Multica; the mirror happens on the first agent turn.** The identifier lands in the issue's `linear` property and on the turn's report (`Linear: CAT-3686 (created)`) — one line, never its own comment.
+- **What you maintain:** the project pairs in [`linear-map.md`](linear-map.md). A Multica project with no row **blocks** its mirror — deliberately: a guessed project pollutes a real cycle. Expect a `🔶 Blocked` proposing the row; approve it and the mirror proceeds.
+- **`done` is still yours, on both boards.** `in_review` in Multica → **Review** in Linear is an agent claiming delivery; you verify the PR, then flip `done` and the mirror follows.
+- **Removal always asks, by identifier.** Cancelling or deleting a Multica issue puts its Linear twin on the block, and that's a `🔷 Needs decision` every time — with both options priced: *cancel* keeps the record and is reversible, *delete* trashes it and breaks every PR and thread link pointing at it. Say **"Approved: cancel CAT-3686"** or **"Approved: delete CAT-3686"**. "Not needed anymore" won't move it, on purpose.
+- **Blocked shows up as Blocked.** A `🔶` report writes Linear's **Blocked** status rather than leaving the issue looking merrily in-progress; a zombie-sweep park writes **Parked**. The board tells the truth about the week or it isn't worth having.
+- **Drift gets swept weekly** (autopilot #7): unmirrored issues, status pairs that disagree, mirrors assigned to someone else, wrong project. The sweep reports; it fixes only what's unambiguous.
+- **Branches and PRs autolink.** Work lands on `agent/<handle>/cat-3686-<slug>` with the Linear URL in the PR body, so the Linear issue shows its branch, PR, and review state on its own.
+
+If Linear ever looks emptier than the week felt, that's a mirror gap — not a quiet week. Ask for a mirror sweep and it'll surface.
+
 ## Decisions
 
 Bring-a-decision is the house style: expect stack-ranked options with trade-offs, not open questions. You can decide **against** the recommendation freely — it gets recorded (ADR) with your reasoning, respectfully, and then everyone commits. Disagreements live in the archive, not in the threads.
@@ -63,6 +77,7 @@ The sweeps and reports below ship as automations — wire `autopilots.md` once a
 - `@trigger — sweep: anything silent >7 days gets close/park/escalate.` *(autopilot #1)*
 - `@merge — flake + pipeline report: quarantine list, p50/p95, anything past the 30-day fix-or-delete line.` *(autopilot #2)*
 - Skim `docs/adrs/README.md` — did last week's decisions get filed? *(autopilot #4 files the gaps)*
+- Read the mirror sweep: unmirrored issues, disagreeing status pairs, wrong assignee or project. *(autopilot #7 — approve any project-map rows it proposes)*
 - Glance at runtime spend/queue depth (the Usage view); tune concurrency before it tunes you. *(stays yours — billing judgment doesn't delegate)*
 
 ## Escalations you should expect (they're features)

@@ -20,6 +20,16 @@ Do this once; it converts "never push to main" from a rule into an impossibility
 - [ ] (Recommended) Squash merging only + require linear history — the linted PR title becomes the commit, so the changelog automation stays clean
 - [ ] Apply the same protection to release branches if you cut them
 
+## Linear autolinking (one connection, then it's free)
+
+The mirror puts the work on n8n's Linear board; this makes the *code* show up there too, without anyone attaching anything:
+
+- [ ] Connect the repository to Linear's GitHub integration once (Linear → Settings → Integrations → GitHub)
+- [ ] Branches carry the mirrored identifier — `agent/<handle>/cat-3686-<slug>` — which is what Linear matches on
+- [ ] PR bodies keep the `Linear:` line from the PR template
+
+With those three, each Linear issue shows its branch, PR, and review state on its own. Without them the mirror still works; you just link things by hand, which means eventually you don't.
+
 ## Least-privilege reminder
 
 Agents get their own machine credentials: single-repo PATs with `contents:write` + `pull_requests:write`, no admin, no secrets access. If an agent reports `🔶 Blocked — cannot push/open PR`, this checklist is where the answer usually lives.

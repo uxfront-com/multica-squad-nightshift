@@ -3,6 +3,7 @@
 
 ## Why
 Closes #<!-- issue id -->
+Linear: https://linear.app/n8n/issue/<!-- CAT-1234 — the mirrored issue; with the identifier in the branch name, Linear autolinks this PR to it -->
 <!-- Motivation and trade-offs the diff can't show. -->
 
 ## Proof

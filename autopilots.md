@@ -1,8 +1,8 @@
 # NIGHTSHIFT — Autopilots (recurring ops on rails)
 
-Multica Autopilots turn the crew's recurring hygiene into scheduled work: cron in, triaged issue out, nothing depending on the Operator remembering. Six earn their keep from day one — five on schedules, one on a webhook. (Multica agents have no idle time — they run only when triggered — so any "when idle" duty in an agent file needs a schedule here to actually exist.)
+Multica Autopilots turn the crew's recurring hygiene into scheduled work: cron in, triaged issue out, nothing depending on the Operator remembering. Seven earn their keep from day one — six on schedules, one on a webhook. (Multica agents have no idle time — they run only when triggered — so any "when idle" duty in an agent file needs a schedule here to actually exist.)
 
-Each block is paste-ready: **Autopilot → New** (or `multica autopilot --help`), assignee as listed, **Execution mode: Create issue** for all five — the work should live where the crew works: reviewable, commentable, on the record. Create-issue mode also queues gracefully when a runtime is offline instead of skipping the run. Add yourself as **subscriber** wherever you want the ping.
+Each block is paste-ready: **Autopilot → New** (or `multica autopilot --help`), assignee as listed, **Execution mode: Create issue** for all six — the work should live where the crew works: reviewable, commentable, on the record. Create-issue mode also queues gracefully when a runtime is offline instead of skipping the run. Add yourself as **subscriber** wherever you want the ping.
 
 Ground rules:
 
@@ -85,6 +85,16 @@ jobs:
 
 **Webhook hygiene:** the URL's token is a credential — store it as a repo secret, never in the repo or screenshots; if it leaks, **Rotate URL** and update the secret. Multica answers `200 accepted/skipped/ignored/duplicate` — a sender seeing `ignored` should check the trigger's enabled state and filters, not retry harder.
 
+## 7. Linear mirror sweep — `@trigger`, weekly
+
+**Schedule:** `0 7 * * 1` (Mondays 07:00)
+
+**Runbook:**
+
+> Reconcile Multica against n8n Linear per your `linear-mirror` skill, section D. Five checks, in order: issues with an empty `linear` property (unmirrored work is invisible to n8n — skip none of them); status pairs that disagree; mirrors not assigned to the Operator; mirrors in the wrong project or none; properties pointing at deleted or archived Linear issues. Fix only what is unambiguous — mirror the unmirrored, write Linear where Multica is ahead, restore the assignee, move issues into their mapped project. Everything else reports: Linear ahead of Multica, dangling properties, duplicate mirrors (name both identifiers, recommend which to keep — the one with history), and any Multica project missing from `linear-map.md`, one proposed row each for the Operator to approve. One summary comment: mirrored / corrected / reported, with identifiers. Never delete or merge a Linear issue here, whatever the sweep finds — removal is the Operator's call, always.
+
+**Why weekly is the floor, not the target:** mirror drift is the one finding that compounds — every day an issue sits unmirrored is a day the board under-reports the week. If the Linear board matters more than the inbox noise, raise this one to daily (`0 7 * * *`) and leave the rest weekly.
+
 ---
 
-**Watching them:** each autopilot's run history shows fired / skipped / ignored per trigger. The Monday twins (#1 and #2) are deliberately same-time — their two issues are your week's opening read. If a report autopilot ever finds nothing, the issue should *say* "clean" — an empty report is a finding, a missing one is a gap.
+**Watching them:** each autopilot's run history shows fired / skipped / ignored per trigger. The Monday trio (#1, #2, #7) is deliberately same-time — those three issues are your week's opening read: what stalled, what the pipeline looks like, and whether the board still matches reality. If a report autopilot ever finds nothing, the issue should *say* "clean" — an empty report is a finding, a missing one is a gap.

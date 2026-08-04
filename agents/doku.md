@@ -9,8 +9,8 @@
 | Model | Default tier |
 | Visibility | Workspace |
 | Concurrency | 4 |
-| Skills | `docs-style` (custom), `changelog` (custom), `docx` (Anthropic public — only when the Operator needs a Word deliverable) |
-| MCP | GitHub, Notion (optional — only if docs also live there), Context7 |
+| Skills | `docs-style` (custom), `changelog` (custom), `docx` (Anthropic public — only when the Operator needs a Word deliverable), `linear-mirror` (custom) |
+| MCP | GitHub, Notion (optional — only if docs also live there), Context7, Linear (issue mirror — required) |
 | Squads | NIGHTSHIFT (member) |
 
 ---

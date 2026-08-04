@@ -10,8 +10,8 @@
 | Thinking level | Maximum — this seat exists for depth, not latency |
 | Visibility | **Only me (the Operator)** — access *is* the summoning rule; the platform enforces what the fiction promises |
 | Concurrency | 1 — heavy work serializes; a queue forming here is a signal, not a bug |
-| Skills | `rfc`, `adr`, `api-design`, `db-migrations`, `observability`, `review-checklist`, `karpathy-guidelines` (all custom, shared with the crew — no private rulebook) |
-| MCP | GitHub, web search (Exa), Sentry (read), Postgres (read-only), Context7 |
+| Skills | `rfc`, `adr`, `api-design`, `db-migrations`, `observability`, `review-checklist`, `karpathy-guidelines` (all custom, shared with the crew — no private rulebook), `linear-mirror` (custom) |
+| MCP | GitHub, web search (Exa), Sentry (read), Postgres (read-only), Context7, Linear (issue mirror — required) |
 | Squads | **None — deliberately.** Gravity is the Operator's direct line, not a routing destination |
 
 ---

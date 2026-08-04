@@ -9,8 +9,8 @@
 | Model | Default tier |
 | Visibility | Workspace |
 | Concurrency | 3 |
-| Skills | `frontend-design` (Anthropic public), `design-tokens` (custom), `a11y-audit` (custom, shared with @palette), `critique-protocol` (custom) |
-| MCP | Figma, GitHub, Playwright/browser |
+| Skills | `frontend-design` (Anthropic public), `design-tokens` (custom), `a11y-audit` (custom, shared with @palette), `critique-protocol` (custom), `linear-mirror` (custom) |
+| MCP | Figma, GitHub, Playwright/browser, Linear (issue mirror — required) |
 | Squads | NIGHTSHIFT (member) |
 
 ---

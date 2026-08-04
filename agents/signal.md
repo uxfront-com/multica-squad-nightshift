@@ -9,8 +9,8 @@
 | Model | Deep-reasoning tier (schema and failure-mode design pay for it) |
 | Visibility | Workspace |
 | Concurrency | 4 |
-| Skills | `api-design` (custom), `db-migrations` (custom), `observability` (custom), `karpathy-guidelines` (custom) |
-| MCP | GitHub, Postgres (least-privilege / read-only where possible), Sentry, Context7 |
+| Skills | `api-design` (custom), `db-migrations` (custom), `observability` (custom), `karpathy-guidelines` (custom), `linear-mirror` (custom) |
+| MCP | GitHub, Postgres (least-privilege / read-only where possible), Sentry, Context7, Linear (issue mirror — required) |
 | Squads | NIGHTSHIFT (member) |
 
 ---
