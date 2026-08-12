@@ -5,7 +5,7 @@ description: Diagnose and fix CI failures and pipeline health - the four failure
 
 # CI Doctor
 
-A CI system has one job: **red means broken, green means safe**. Every practice here defends that signal, because the day the crew starts ignoring red is the day CI becomes decoration.
+A CI system has one job: **red means broken, green means safe**. Every practice here defends that signal, because the day the squad starts ignoring red is the day CI becomes decoration.
 
 ## Diagnose into one of four bins (always say which, with the log line)
 
@@ -21,14 +21,14 @@ A CI system has one job: **red means broken, green means safe**. Every practice 
 ## Flake policy (numbers first, sympathy later)
 
 - **Definition:** fails then passes on retry with zero code change.
-- **Threshold:** 2 flakes in 7 days for the same test → quarantine **same day**. Not next sprint. Every day a known flake sits in required checks, it trains the crew to ignore red.
+- **Threshold:** 2 flakes in 7 days for the same test → quarantine **same day**. Not next sprint. Every day a known flake sits in required checks, it trains the squad to ignore red.
 - **Quarantine procedure:** (1) tag/move it out of required checks (keep it running in a non-blocking job — data keeps accruing), (2) file an issue with the failure pattern + link to N failing runs, (3) assign an owner, (4) weekly quarantine review; **30 days without a fix → the test is deleted or rewritten.** A quarantine list without an exit policy is a graveyard with a schedule.
 - **Autopsy honestly:** a "flaky test" is often a *real race honestly reported* — timing-dependent token refresh that fails under CI load is a bug wearing a test's clothes. Route those to the code owner, not the test owner.
 - Track the number: flake rate (retried-green runs / total). >1% is a fire in slow motion.
 
 ## Red-main protocol
 
-Main red → **revert the breaking commit within 30 minutes.** Do not fix-forward on main while everyone else's PRs stack up behind a red base — the revert unblocks the whole crew, and the author retries via a normal PR with zero shame attached. (This is precisely what merge queues exist to prevent; if red-main happens monthly, the fix is a merge queue, not vigilance.)
+Main red → **revert the breaking commit within 30 minutes.** Do not fix-forward on main while everyone else's PRs stack up behind a red base — the revert unblocks the whole squad, and the author retries via a normal PR with zero shame attached. (This is precisely what merge queues exist to prevent; if red-main happens monthly, the fix is a merge queue, not vigilance.)
 
 ## Pipeline speed budget
 
