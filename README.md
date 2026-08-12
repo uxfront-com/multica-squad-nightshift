@@ -2,7 +2,7 @@
 
 Eleven AI specialists. One Operator (you). Each agent is a master of one trade — its job is its personality — and together they plan, build, verify, ship, document, and announce software under your supervision.
 
-This pack contains everything needed to stand the squad up in [Multica](https://multica.ai): one file per agent (description + full system instructions), a shared protocol appended to every agent, a team constitution (`agents/_team-instructions.md`) for the repo root, the single-squad configuration with @trigger's routing instructions, and a skills/MCP plan with all 25 custom skills included. Also in the box: `repo-scaffold/` (PR/issue templates, PR-title lint, review routing, the docs tree — so the environment *enforces* what the instructions request), `autopilots.md` (six paste-ready automations that put the squad's recurring hygiene on rails), `operator-guide.md` (the one-page manual for you), and `acceptance-tests.md` (nine scripted issues that smoke-test squad behavior after any change).
+This pack contains everything needed to stand the squad up in [Multica](https://multica.ai): one file per agent (description + full system instructions), a shared protocol appended to every agent, a team constitution (`agents/_team-instructions.md`) for the repo root, the single-squad configuration with @trigger's routing instructions, and a skills/MCP plan with all 26 custom skills included. Also in the box: `repo-scaffold/` (PR/issue templates, PR-title lint, review routing, the docs tree — so the environment *enforces* what the instructions request), `autopilots.md` (six paste-ready automations that put the squad's recurring hygiene on rails), `operator-guide.md` (the one-page manual for you), and `acceptance-tests.md` (ten scripted issues that smoke-test squad behavior after any change).
 
 **Version 2.** The theme and per-agent personas of v1 are gone: agents have no backstory, no voice quirks, no flavor — the job is the personality, and every artifact and comment is plain professional work. Each agent file now lists the concrete skills that make it a master of its craft. Three agents were renamed (Canvas → Sigma, Doku → Quill, Signal → Valve), **Void** (software architect) joined the squad, and Gravity was retired — its architecture duties live with Void, inside the squad. Details in `CHANGELOG.md`.
 
@@ -101,7 +101,7 @@ Then paste the **Instructions** block from the section above.
 
 **6. Wire the autopilots.** `autopilots.md` holds six paste-ready automations — zombie sweep, pipeline health, docs rot hunt, ADR backfill, janitor sweep, and a CI red-alert webhook. Create them under *Autopilot → New*; they file normal issues, so everything they start obeys the same rules as everything else.
 
-**7. Smoke-test the wiring.** Run `acceptance-tests.md` — nine throwaway issues covering triage, splitting, PR discipline, bug-flow order, the draft/approval gate, safety rails, recommend-vs-decide, status honesty, and the architecture design/record split. Each test names the file to fix if it fails. Fix anything that reads wrong *in the agent's file* and re-paste — the files are the source of truth; keep them in your repo.
+**7. Smoke-test the wiring.** Run `acceptance-tests.md` — ten throwaway issues covering triage, splitting, PR discipline, bug-flow order, the draft/approval gate, safety rails, recommend-vs-decide, status honesty, the architecture design/record split, and STE-compliant answers. Each test names the file to fix if it fails. Fix anything that reads wrong *in the agent's file* and re-paste — the files are the source of truth; keep them in your repo.
 
 ---
 
@@ -111,17 +111,19 @@ Then paste the **Instructions** block from the section above.
 
 | Agent | Skills |
 |---|---|
-| trigger | triage-protocol, prioritization-rubric |
-| wire | prd, prioritization-rubric, xlsx ✦, pptx ✦ |
-| sigma | frontend-design ✦, design-tokens, component-standards, a11y-audit, critique-protocol |
-| palette | frontend-design ✦, component-standards, a11y-audit, karpathy-guidelines |
-| valve | api-design, db-migrations, observability, karpathy-guidelines |
-| merge | conventional-commits, release-runbook, ci-doctor, review-checklist, karpathy-guidelines |
-| filter | bug-repro, e2e-playwright, review-checklist, karpathy-guidelines |
-| void | api-design, db-migrations, observability, review-checklist, lit-review, karpathy-guidelines |
-| index | rfc, adr, pdf ✦ |
-| quill | docs-style, changelog, docx ✦ |
-| jinx | brand-voice, launch-checklist, seo-basics, pptx ✦ |
+| trigger | triage-protocol, prioritization-rubric, asd-ste100 |
+| wire | prd, prioritization-rubric, xlsx ✦, pptx ✦, asd-ste100 |
+| sigma | frontend-design ✦, design-tokens, component-standards, a11y-audit, critique-protocol, asd-ste100 |
+| palette | frontend-design ✦, component-standards, a11y-audit, karpathy-guidelines, asd-ste100 |
+| valve | api-design, db-migrations, observability, karpathy-guidelines, asd-ste100 |
+| merge | conventional-commits, release-runbook, ci-doctor, review-checklist, karpathy-guidelines, asd-ste100 |
+| filter | bug-repro, e2e-playwright, review-checklist, karpathy-guidelines, asd-ste100 |
+| void | api-design, db-migrations, observability, review-checklist, lit-review, karpathy-guidelines, asd-ste100 |
+| index | rfc, adr, pdf ✦, asd-ste100 |
+| quill | docs-style, changelog, docx ✦, asd-ste100 |
+| jinx | brand-voice, launch-checklist, seo-basics, pptx ✦, asd-ste100 |
+
+*`asd-ste100` is the one all-agents skill: every answer the squad writes follows ASD-STE100 Simplified Technical English (constitution §8).*
 
 **MCP servers:**
 
@@ -143,10 +145,11 @@ Then paste the **Instructions** block from the section above.
 
 ### Custom skills (included in `skills/`)
 
-All 25 are written and included in this pack — each a folder holding a `SKILL.md` (frontmatter name + trigger-happy description, dense body) plus bundled resources where useful (`a11y-audit` ships an axe-core scan script). The `rfc / adr` row below is two separate skills. See `skills/README.md` for the index; install by pushing `skills/` to a repo and importing via Multica's *import from GitHub*.
+All 26 are written and included in this pack — each a folder holding a `SKILL.md` (frontmatter name + trigger-happy description, dense body) plus bundled resources where useful (`a11y-audit` ships an axe-core scan script). The `rfc / adr` row below is two separate skills. See `skills/README.md` for the index; install by pushing `skills/` to a repo and importing via Multica's *import from GitHub*.
 
 | Skill | Owner(s) | What goes in it |
 |---|---|---|
+| `asd-ste100` | all agents | ASD-STE100 Simplified Technical English for answers: approved words, the 20/25-word sentence limits, command-form instructions, the software technical-name mapping. |
 | `triage-protocol` | trigger | Severity/priority definitions, the triage template, splitting rules, escalation ladder. |
 | `prioritization-rubric` | trigger, wire | RICE/ICE scoring sheet + worked examples, tie-break rules. |
 | `prd` | wire | The PRD skeleton (problem → non-goals → thin slice → kill criteria) + 2 filled examples. |
@@ -193,7 +196,7 @@ All 25 are written and included in this pack — each a folder holding a `SKILL.
 The full text lives in `agents/_team-instructions.md` — the team constitution (`agents/_shared-protocol.md` is its per-agent excerpt); the spirit in five lines:
 
 1. **Read the whole thread, then act, then report with receipts, then hand off.** Every turn ends with the ball visibly in someone's court.
-2. **Clean and concise, only relevant information** — and never repeating what another agent already said unless the Operator needs it.
+2. **Clean, concise, and in ASD-STE100 Simplified Technical English** — only relevant information, and never repeating what another agent already said unless the Operator needs it.
 3. **Truth protocol:** verified / inferred / assumed — labeled. Nobody fabricates. "Unknown + how I'd find out" is a first-class answer.
 4. **Operator sign-off** for anything destructive, irreversible, secret-touching, money-spending, or externally published.
 5. **No ping-pong, three-bounce escalation, one owner per outcome — and every code change ships as a pull request.**

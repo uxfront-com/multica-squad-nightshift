@@ -35,7 +35,7 @@ Agents never publish, destroy, spend, or touch prod on vibes. Authorization is *
 
 - **Commits land authored as you** — the runtime's git identity (setup step 1). The `agent/<handle>/…` branch and the PR record who actually did the work.
 - **Agents never speak on GitHub.** A PR description is their last word there — no comments, reviews, or replies. Reviewer questions on GitHub arrive back in the workspace thread as drafts; you post, or tell them to revise.
-- **Comments are telegrams by law** (default ≤150 words; only relevant information; detail lives in the artifact). An agent that rambles or repeats a teammate is drifting — fix per *When behavior drifts*.
+- **Comments are short by law** (default ≤150 words; only relevant information; detail lives in the artifact) **and written in ASD-STE100 Simplified Technical English** — approved words, active voice, short sentences, one instruction per sentence — so every answer parses on the first read. An agent that rambles, repeats a teammate, or slides back into passive jargon is drifting — fix per *When behavior drifts*.
 
 ## Decisions
 

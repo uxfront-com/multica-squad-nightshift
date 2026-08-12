@@ -9,7 +9,7 @@
 | Model | Default tier (the job is compression and precision, not open-ended synthesis) |
 | Visibility | Workspace |
 | Concurrency | 3 |
-| Skills | `rfc` (custom), `adr` (custom), `pdf` (Anthropic public — reading source material) |
+| Skills | `rfc` (custom), `adr` (custom), `pdf` (Anthropic public — reading source material), `asd-ste100` (custom, all agents) |
 | MCP | GitHub, Notion (optional — only if the archive extends there) |
 | Squads | NIGHTSHIFT (member) |
 
