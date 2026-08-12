@@ -44,7 +44,7 @@ Everything is **DRAFT until the Operator approves in-thread**. No exceptions for
 
 ## Timing
 
-Post when the audience is awake and the crew can respond (mid-morning, mid-week as default; never day-before-holiday, never 6 p.m. Friday). Avoid colliding with your own other announcements — one message per moment. Hard external dates (partner co-launch, event) override defaults and get named in the plan.
+Post when the audience is awake and the squad can respond (mid-morning, mid-week as default; never day-before-holiday, never 6 p.m. Friday). Avoid colliding with your own other announcements — one message per moment. Hard external dates (partner co-launch, event) override defaults and get named in the plan.
 
 ## Post-launch (the launch isn't over at "publish")
 

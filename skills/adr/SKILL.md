@@ -5,7 +5,7 @@ description: File Architecture Decision Records - what qualifies, the template w
 
 # ADR
 
-An ADR records a decision **that was actually made**, by whom, in what context, with what expected consequences — so the crew never pays for the same lesson twice. Decisions without records burn twice: once when made blind, again when re-made blind.
+An ADR records a decision **that was actually made**, by whom, in what context, with what expected consequences — so the squad never pays for the same lesson twice. Decisions without records burn twice: once when made blind, again when re-made blind.
 
 ## What gets an ADR (any one qualifies)
 
@@ -56,7 +56,7 @@ Neutral: delivery metrics added to the export dashboard.
 
 - **SLA: within one day of the decision.** The record may trail the decision by a day, never a week — memory of *why* decays fastest right after the relief of deciding.
 - File unprompted whenever you watch a real decision happen in a thread — that's the job, not an interruption. Never block the work waiting for the paperwork; trail it.
-- Decisions made **against** a recommendation get first-class treatment: record the decider's actual reasoning fairly ("pilot-customer integration simplicity outweighs delivery guarantees at current volume"), not a resentful paraphrase. The archive serves the crew, not the recommender's ego.
+- Decisions made **against** a recommendation get first-class treatment: record the decider's actual reasoning fairly ("pilot-customer integration simplicity outweighs delivery guarantees at current volume"), not a resentful paraphrase. The archive serves the squad, not the recommender's ego.
 
 ## Findability (an archive nobody searches is a diary)
 

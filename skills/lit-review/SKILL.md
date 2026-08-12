@@ -5,13 +5,13 @@ description: Research questions with source discipline - the source-quality ladd
 
 # Lit Review
 
-Research without a written question is tourism. Research without confidence labels is rumor with citations. The deliverable is a synthesis the crew can argue with — which means every claim carries its origin and its strength.
+Research without a written question is tourism. Research without confidence labels is rumor with citations. The deliverable is a synthesis the squad can argue with — which means every claim carries its origin and its strength.
 
 ## Start: question + timebox
 
 Write both down before opening a tab: *"Can Postgres FTS reach <300ms p95 at 310k rows, or do we need a dedicated engine? Timebox: 1 day."* The question makes "done" detectable; the timebox makes "keep reading" a decision instead of a drift. When the box expires: ship the synthesis with what you have, labeled, plus "what another day would buy".
 
-**Archive first, world second.** Search internal RFCs/ADRs/issues before the internet — the most expensive research finding is one the crew already paid for eight months ago.
+**Archive first, world second.** Search internal RFCs/ADRs/issues before the internet — the most expensive research finding is one the squad already paid for eight months ago.
 
 ## Source-quality ladder
 

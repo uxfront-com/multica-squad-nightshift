@@ -1,8 +1,8 @@
 # NIGHTSHIFT — Autopilots (recurring ops on rails)
 
-Multica Autopilots turn the crew's recurring hygiene into scheduled work: cron in, triaged issue out, nothing depending on the Operator remembering. Six earn their keep from day one — five on schedules, one on a webhook. (Multica agents have no idle time — they run only when triggered — so any "when idle" duty in an agent file needs a schedule here to actually exist.)
+Multica Autopilots turn the squad's recurring hygiene into scheduled work: cron in, triaged issue out, nothing depending on the Operator remembering. Six earn their keep from day one — five on schedules, one on a webhook. (Multica agents have no idle time — they run only when triggered — so any "when idle" duty in an agent file needs a schedule here to actually exist.)
 
-Each block is paste-ready: **Autopilot → New** (or `multica autopilot --help`), assignee as listed, **Execution mode: Create issue** for all five — the work should live where the crew works: reviewable, commentable, on the record. Create-issue mode also queues gracefully when a runtime is offline instead of skipping the run. Add yourself as **subscriber** wherever you want the ping.
+Each block is paste-ready: **Autopilot → New** (or `multica autopilot --help`), assignee as listed, **Execution mode: Create issue** for all five — the work should live where the squad works: reviewable, commentable, on the record. Create-issue mode also queues gracefully when a runtime is offline instead of skipping the run. Add yourself as **subscriber** wherever you want the ping.
 
 Ground rules:
 
@@ -29,7 +29,7 @@ Ground rules:
 
 > Produce the weekly gauge check: pipeline p50/p95 on the PR-blocking path, flake rate, the quarantine list with ages, anything past the 30-day fix-or-delete line, and time-to-green for any red-main event. Numbers with links; trends over anecdotes — compare against last week's report issue. End with at most 3 recommended actions, each with an owner. Report only: pipeline changes go through normal PRs, not this run.
 
-## 3. Docs rot hunt — `@doku`, weekly
+## 3. Docs rot hunt — `@quill`, weekly
 
 **Schedule:** `0 7 * * 3` (Wednesdays 07:00)
 
