@@ -3,6 +3,18 @@
 All notable changes to the NIGHTSHIFT pack are documented here. The pack versions like code because it is code — instructions included.
 Format: Keep a Changelog.
 
+## [2.1.0] - 2026-08-12
+
+The squad's answers now speak **ASD-STE100 Simplified Technical English** — the controlled language built for aerospace maintenance documentation, adapted here to software: approved words with one meaning each, active voice, simple tenses, ≤20-word instruction / ≤25-word descriptive sentences, one instruction per sentence, warnings before the step. Scope is answers — reports, comments, replies, triage notes, PR descriptions; artifacts with their own style law (docs, marketing, commits, code) keep it, and quoted output is never rewritten.
+
+### Added
+- **`asd-ste100` skill** (`skills/asd-ste100/`) — the 26th custom skill, attached to **all eleven agents**: the writing rules condensed into rule groups (words, technical names/verbs, verbs and voice, sentences and paragraphs, procedures vs. descriptions, warnings/cautions/notes), the software mapping for STE technical names and technical verbs (identifiers, commands, paths, error text stay exact, in code format), a substitution table of frequent unapproved→approved words, a worked before/after report, and a pre-post checklist. The official dictionary (free from asd-ste100.org) stays the authority.
+- **The language law** (constitution §8 + pocket card *Communication*): every answer is written in STE; the skill carries the depth. Wired through both README skill matrices, all eleven agent Skills rows, the house rules, and the operator guide.
+- **Acceptance test T10 — answers in Simplified Technical English:** one probe issue checking command-form steps, sentence limits, kept articles, exact technical names, and the absence of unapproved connectors.
+
+### Changed
+- **"Comments are telegrams" reworded to "comments are short"** (constitution §8, operator guide, trigger.md): STE forbids telegraphic writing — dropped articles and verbs — while the ≤150-word default stands. Brevity now explicitly means fewer ideas per sentence, never missing words.
+
 ## [2.0.0] - 2026-08-12
 
 Version 2 of the squad. The theme is gone, the personas are gone, and every agent file was rewritten from the Operator's role notes: each agent is defined by its job and carries an explicit list of the skills that make it a master of its craft.

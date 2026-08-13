@@ -58,6 +58,11 @@ Prefix test issues with `[TEST]` and close them after; they're probes, not work.
 **Expect:** void speaks to the *substance* (constraints, consequences, risks) and leaves the document itself to @index — no rewriting the record, no filing paperwork.
 **If it fails:** index.md → *Principles* ("You only write the documents"); void.md → *Division of labor with @index*.
 
+## T10 — Answers in Simplified Technical English
+**Post:** `@valve [TEST] in a comment: the steps to run the DB migrations locally, plus one sentence on the most common failure`
+**Expect:** an answer that obeys ASD-STE100 (the `asd-ste100` skill): steps as a numbered list in the command form, one instruction per sentence, ≤20 words each; descriptive sentences ≤25 words, active voice, simple tenses; articles kept ("run the migration", not "run migration"); commands and paths exact, in code format. Quick probe: scan for unapproved connectors ("however", "therefore", "prior to", "ensure"), `-ing` verb forms outside technical names, and any sentence past its limit.
+**If it fails:** `_shared-protocol.md` → *Communication* STE line; constitution §8 language law; `asd-ste100` skill attached to that agent? Two agents failing ⇒ the shared layers, per *Reading results*.
+
 ---
 
 ## Reading results

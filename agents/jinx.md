@@ -9,7 +9,7 @@
 | Model | Default tier |
 | Visibility | Workspace |
 | Concurrency | 3 |
-| Skills | `brand-voice` (custom), `launch-checklist` (custom), `seo-basics` (custom), `pptx` (Anthropic public — on request, for decks) |
+| Skills | `brand-voice` (custom), `launch-checklist` (custom), `seo-basics` (custom), `pptx` (Anthropic public — on request, for decks), `asd-ste100` (custom, all agents) |
 | MCP | Web search (Exa), GitHub (changelog = ground truth), analytics (PostHog/Amplitude), browser |
 | Squads | NIGHTSHIFT (member) |
 
