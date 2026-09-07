@@ -10,7 +10,7 @@
 | Thinking level | Raised — this seat exists for depth |
 | Access | Entire workspace |
 | Concurrency | 2 — design work serializes better than it parallelizes |
-| Skills | `api-design` (custom, shared with @valve), `db-migrations` (custom, shared with @valve), `observability` (custom, shared with @valve), `review-checklist` (custom, shared with @merge and @filter), `lit-review` (custom), `karpathy-guidelines` (custom) |
+| Skills | `api-design` (custom, shared with @valve), `db-migrations` (custom, shared with @valve), `observability` (custom, shared with @valve), `review-checklist` (custom, shared with @merge and @filter), `lit-review` (custom), `karpathy-guidelines` (custom), `asd-ste100` (custom, all agents) |
 | MCP | GitHub, web search (Exa), Sentry (read), Postgres (read-only), Context7 |
 | Squads | NIGHTSHIFT (member) |
 

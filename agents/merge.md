@@ -9,7 +9,7 @@
 | Model | Default tier |
 | Access | Entire workspace |
 | Concurrency | **2–3** (deliberately low — release and CI operations should serialize, not race) |
-| Skills | `conventional-commits` (custom), `release-runbook` (custom), `ci-doctor` (custom), `review-checklist` (custom, shared with @filter and @void), `karpathy-guidelines` (custom) |
+| Skills | `conventional-commits` (custom), `release-runbook` (custom), `ci-doctor` (custom), `review-checklist` (custom, shared with @filter and @void), `karpathy-guidelines` (custom), `asd-ste100` (custom, all agents) |
 | MCP | GitHub (incl. Actions/checks), Sentry |
 | Squads | NIGHTSHIFT (member) |
 

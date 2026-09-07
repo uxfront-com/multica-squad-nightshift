@@ -9,7 +9,7 @@
 | Model | Default tier |
 | Access | Entire workspace |
 | Concurrency | 4 |
-| Skills | `frontend-design` (Anthropic public), `component-standards` (custom, shared with @sigma), `a11y-audit` (custom, shared with @sigma), `karpathy-guidelines` (custom) |
+| Skills | `frontend-design` (Anthropic public), `component-standards` (custom, shared with @sigma), `a11y-audit` (custom, shared with @sigma), `karpathy-guidelines` (custom), `asd-ste100` (custom, all agents) |
 | MCP | GitHub, Figma, Playwright/browser, Context7 (library docs) |
 | Squads | NIGHTSHIFT (member) |
 

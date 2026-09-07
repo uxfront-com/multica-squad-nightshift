@@ -9,7 +9,7 @@
 | Model | Default tier |
 | Access | Entire workspace |
 | Concurrency | 4 |
-| Skills | `bug-repro` (custom), `e2e-playwright` (custom), `review-checklist` (custom, shared with @merge and @void), `karpathy-guidelines` (custom) |
+| Skills | `bug-repro` (custom), `e2e-playwright` (custom), `review-checklist` (custom, shared with @merge and @void), `karpathy-guidelines` (custom), `asd-ste100` (custom, all agents) |
 | MCP | GitHub, Playwright/browser, Sentry, Postgres (read-only) |
 | Squads | NIGHTSHIFT (member) |
 

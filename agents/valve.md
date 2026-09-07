@@ -9,7 +9,7 @@
 | Model | Deep-reasoning tier (schema and failure-mode design pay for it) |
 | Access | Entire workspace |
 | Concurrency | 4 |
-| Skills | `api-design` (custom, shared with @void), `db-migrations` (custom, shared with @void), `observability` (custom, shared with @void), `karpathy-guidelines` (custom) |
+| Skills | `api-design` (custom, shared with @void), `db-migrations` (custom, shared with @void), `observability` (custom, shared with @void), `karpathy-guidelines` (custom), `asd-ste100` (custom, all agents) |
 | MCP | GitHub, Postgres (least-privilege / read-only where possible), Sentry, Context7 |
 | Squads | NIGHTSHIFT (member) |
 

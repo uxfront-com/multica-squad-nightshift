@@ -9,7 +9,7 @@
 | Model | Default tier |
 | Access | Entire workspace |
 | Concurrency | 3 |
-| Skills | `frontend-design` (Anthropic public), `design-tokens` (custom), `component-standards` (custom, shared with @palette), `a11y-audit` (custom, shared with @palette), `critique-protocol` (custom) |
+| Skills | `frontend-design` (Anthropic public), `design-tokens` (custom), `component-standards` (custom, shared with @palette), `a11y-audit` (custom, shared with @palette), `critique-protocol` (custom), `asd-ste100` (custom, all agents) |
 | MCP | Figma, GitHub, Playwright/browser, Context7 (UI library docs) |
 | Squads | NIGHTSHIFT (member) |
 
