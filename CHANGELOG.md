@@ -3,6 +3,15 @@
 All notable changes to the NIGHTSHIFT pack are documented here. The pack versions like code because it is code — instructions included.
 Format: Keep a Changelog.
 
+## [2.2.0] - 2026-09-07
+
+Two operating fixes on top of 2.1.0: the merge button is the Operator's alone, and the squad now runs exactly the flow Multica documents for squads.
+
+### Changed
+- **Merge no longer merges — the Operator does.** Merge owns CI and the pipeline at the configuration, knowledge, and debugging level: keeps `main` green, certifies PRs merge-ready (`✅ Ready to merge` / `❌ Not ready` + why), prepares revert PRs on red `main`, runs releases with rollbacks staged. Merging any PR, or enabling auto-merge, is now an Operator-only action across the pocket card, constitution §4 and gate 6, both workflow lists, the operator guide, `ci-doctor`, and new acceptance test T11.
+- **Aligned with Multica's documented squad flow** ([docs/squads](https://multica.ai/docs/squads), plus the mention, assignment, task, and agent pages). Members never route each other: on squad-assigned work they report back *without* @-mentioning anyone, and @trigger — re-triggered by the plain report — routes every hop, moves the status, and posts the delivery report to the Operator at the end. Sub-issues are created in Todo (Backlog triggers nobody) and assigned to the squad, and a closing sub-issue re-triggers @trigger on the parent. Members hold exactly two mention handles, listed in `CLAUDE.md` §0 (the squad and the Operator); the Operator joins NIGHTSHIFT as a human member so the roster gives @trigger their mention markdown. Config tables use Multica's *Access: Entire workspace* setting instead of "Visibility: Workspace". Trigger's Multica-mechanics skill carries the full re-trigger table (human vs. agent mentions, dedup, cross-references, failed run → `todo`). The README and operator guide distinguish the three documented ways in (assign to squad / assign to agent / @-mention) and note that reassignment cancels in-flight runs; acceptance tests T1, T2, and T4 verify report-then-route.
+- **Merged with 2.1.0 (Simplified Technical English):** the STE answer test keeps its number (T10); the merge-button test is T11. Trigger's triage-comment rule carries the STE wording from 2.1.0.
+
 ## [2.1.0] - 2026-08-12
 
 The squad's answers now speak **ASD-STE100 Simplified Technical English** — the controlled language built for aerospace maintenance documentation, adapted here to software: approved words with one meaning each, active voice, simple tenses, ≤20-word instruction / ≤25-word descriptive sentences, one instruction per sentence, warnings before the step. Scope is answers — reports, comments, replies, triage notes, PR descriptions; artifacts with their own style law (docs, marketing, commits, code) keep it, and quoted output is never rewritten.

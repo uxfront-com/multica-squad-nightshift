@@ -2,7 +2,7 @@
 
 Eleven AI specialists. One Operator (you). Each agent is a master of one trade — its job is its personality — and together they plan, build, verify, ship, document, and announce software under your supervision.
 
-This pack contains everything needed to stand the squad up in [Multica](https://multica.ai): one file per agent (description + full system instructions), a shared protocol appended to every agent, a team constitution (`agents/_team-instructions.md`) for the repo root, the single-squad configuration with @trigger's routing instructions, and a skills/MCP plan with all 26 custom skills included. Also in the box: `repo-scaffold/` (PR/issue templates, PR-title lint, review routing, the docs tree — so the environment *enforces* what the instructions request), `autopilots.md` (six paste-ready automations that put the squad's recurring hygiene on rails), `operator-guide.md` (the one-page manual for you), and `acceptance-tests.md` (ten scripted issues that smoke-test squad behavior after any change).
+This pack contains everything needed to stand the squad up in [Multica](https://multica.ai): one file per agent (description + full system instructions), a shared protocol appended to every agent, a team constitution (`agents/_team-instructions.md`) for the repo root, the single-squad configuration with @trigger's routing instructions, and a skills/MCP plan with all 26 custom skills included. Also in the box: `repo-scaffold/` (PR/issue templates, PR-title lint, review routing, the docs tree — so the environment *enforces* what the instructions request), `autopilots.md` (six paste-ready automations that put the squad's recurring hygiene on rails), `operator-guide.md` (the one-page manual for you), and `acceptance-tests.md` (eleven scripted issues that smoke-test squad behavior after any change).
 
 **Version 2.** The theme and per-agent personas of v1 are gone: agents have no backstory, no voice quirks, no flavor — the job is the personality, and every artifact and comment is plain professional work. Each agent file now lists the concrete skills that make it a master of its craft. Three agents were renamed (Canvas → Sigma, Doku → Quill, Signal → Valve), **Void** (software architect) joined the squad, and Gravity was retired — its architecture duties live with Void, inside the squad. Details in `CHANGELOG.md`.
 
@@ -17,7 +17,7 @@ This pack contains everything needed to stand the squad up in [Multica](https://
 | `@sigma` | Sigma | Design engineer | The design system, tokenized and in Storybook; accessibility built in. |
 | `@palette` | Palette | Frontend engineer | Every state designed, fast on cheap hardware, zero layout shift. |
 | `@valve` | Valve | Backend engineer | Graceful degradation, honest data models, boring migrations. |
-| `@merge` | Merge | Pipeline keeper | `main` green and deployable every minute of the day. |
+| `@merge` | Merge | Pipeline keeper | `main` green, CI fast and trusted, PRs merge-ready — the Operator merges. |
 | `@filter` | Filter | Quality assurance engineer | Deterministic repro before any fix; a regression guard on every bug. |
 | `@void` | Void | Software architect | Clear structured plans; pragmatic decisions; no reinvented wheels. |
 | `@index` | Index | RFCs & ADRs | RFC before large changes, ADR after decisions, as few words as possible. |
@@ -28,18 +28,22 @@ This pack contains everything needed to stand the squad up in [Multica](https://
 
 ## Squad architecture
 
-One squad, one leader. Multica squads are routing: assign an issue to **NIGHTSHIFT** and the leader agent — **@trigger** — reads it, moves the parent to `in_progress`, @-mentions the best member, records its evaluation, and stops; the parent reaches `in_review` only when the whole outcome is met. Multica's built-in Squad Operating Protocol enforces exactly this loop — the routing map below rides on top of it. Everyone else is a member; nobody else carries leader duties.
+One squad, one leader, and the flow Multica documents for squads ([docs/squads](https://multica.ai/docs/squads)): assign an issue to **NIGHTSHIFT** and Multica enqueues only the leader — **@trigger** — which reads it, moves the parent to `in_progress`, posts one terse delegation comment @-mentioning the best member with the roster's mention markdown, records its evaluation (`multica squad activity`), and stops. The mentioned member does its part and **reports back without mentioning anyone**; that report re-triggers @trigger, which routes the next hop, escalates, moves the parent to `in_review` once the whole outcome is met, or stands down (`no_action`). At the end @trigger posts the delivery report and @-mentions you for sign-off; `done` is yours. Multica's built-in Squad Operating Protocol enforces the leader half of this loop — the routing map below rides on top of it. Everyone else is a member; members never route each other, and nobody else carries leader duties.
 
 ```
 NIGHTSHIFT  (the whole squad)   leader: @trigger
     members: @wire · @sigma · @palette · @valve · @merge
              @filter · @void · @index · @quill · @jinx
-    Everything gets assigned here. Trigger triages everything.
+             + you, as a human member (so trigger can @-mention you)
+    Multi-craft or unclear owner → assign here. Trigger triages everything.
 ```
 
-**Default habit:** assign new issues to **NIGHTSHIFT** and let @trigger route. @-mention an individual agent directly when you already know exactly who you need. When @trigger splits multi-craft work, the sub-issues are assigned back to the squad — never to individual members — so every piece enters through triage with its owner named in the routing comment.
+**Three ways to put work in, per the docs:**
+- **Assign to NIGHTSHIFT** when the work needs several crafts or the owner isn't obvious — the default for anything non-trivial. Splits come back here too: @trigger creates sub-issues in Todo, assigned to the squad (never to a member), so each piece gets its own triage.
+- **Assign directly to an agent** when the scope is clear and one specialist can finish it alone — that agent becomes the official assignee and owns the status.
+- **@-mention** an agent (or the squad) in a comment for a look, a question, or a one-off sub-task — no assignee change, no status change.
 
-Three Multica behaviors worth knowing: mentioning the squad in a comment triggers @trigger without changing the assignee (good for "who should own this?"). A *human's* explicit @-mention of a specific agent routes past the leader entirely, while one agent's handoff comment to another still wakes @trigger to observe — standing down (`no_action`) is its trained move, so deliberate handoffs stay clean either way. And mentions only fire when posted: editing an @ into an existing comment triggers nobody.
+Re-trigger rules worth knowing: a *human's* explicit @-mention of a specific member routes past the leader (the @ is the routing signal); a member's plain report wakes the leader — that's the hand-off; an agent that @-mentions another agent also wakes the leader, which is why members don't do it. Mentions only fire when posted — editing an @ into an existing comment triggers nobody. Squads add routing, not capacity: concurrency stays per agent.
 
 ### Squad Instructions (paste into NIGHTSHIFT's *Instructions* field)
 
@@ -51,10 +55,12 @@ Routing map: product framing/specs → @wire · design system/UX/components →
 system design → @void · PR/CI/release → @merge · bugs/repro/verification/
 review → @filter · RFC/ADR records → @index · docs/changelog → @quill ·
 marketing/comms → @jinx.
+Members report back without mentioning anyone; you route every hop, and
+you post the delivery report to the Operator when the outcome is met.
 Sequencing rules: one owner per outcome — multi-craft issues are split BY
-YOU before any routing: create one sub-issue per outcome, assign each to
-the NIGHTSHIFT squad (never to an individual member), and route each with
-its single owner named; never route a multi-craft issue whole. Bugs route
+YOU before any routing: create one sub-issue per outcome in Todo, assign
+each to the NIGHTSHIFT squad (never to an individual member), and triage
+each with its single owner named; never route a multi-craft issue whole. Bugs route
 to @filter for repro BEFORE any engineer. Build work without acceptance
 criteria routes to @wire first (definition-of-ready). New user-facing
 surfaces go design-first: @sigma before @palette. Architecturally
@@ -78,7 +84,7 @@ Prereqs: a running Multica workspace, the daemon connected, and at least one sup
 - **Description:** the blurb at the top of each agent file. Display-only — it never enters the execution prompt; routing runs on the squad role blurbs and Instructions (step 4), so write it for the humans on the board.
 - **Runtime:** Claude Code. **Model:** see each agent file's suggestion (deep-reasoning tier (**Opus 5**) for `wire`, `valve`, `void`; fast/default for the rest — tune to your plan and budget). **Thinking level:** Multica exposes it per agent — raise it for the deep-reasoning trio (highest for `void`), keep default elsewhere.
 - **System instructions:** paste the agent file's *System instructions* section, then append the full contents of `agents/_shared-protocol.md`.
-- **Visibility:** Workspace. **Concurrency:** per the agent file (note `merge` runs deliberately low at 2–3 so release operations serialize, and `void` at 2 because design work serializes better than it parallelizes).
+- **Access:** *Entire workspace* — new agents default to *Only me*, which would leave them assignable by their owner alone. **Concurrency:** per the agent file (note `merge` runs deliberately low at 2–3 so release operations serialize, and `void` at 2 because design work serializes better than it parallelizes).
 - **Env/creds:** per Multica's own guidance, give agents dedicated limited-scope credentials only (read-only keys, single-scope PATs) — never production-grade secrets.
 - **Git identity:** on each runtime, set git's author identity to *yours* before first run — `git config --global user.name "<your name>" && git config --global user.email "<your GitHub email>"`. Commits are authored as the Operator (constitution §11); the credential only authenticates the push, and the `agent/<handle>/…` branch records who did the work.
 
@@ -95,13 +101,13 @@ Add the other ten agents as members with role blurbs (@trigger reads these when 
 multica squad member add <NIGHTSHIFT-id> --member-id <palette-uuid> --type agent \
   --role "UI implementation, a11y, web vitals"
 ```
-Then paste the **Instructions** block from the section above.
+Then add **yourself** as a human member with a role blurb ("Operator — final sign-off: decisions, approvals, merges") so the roster gives @trigger your mention markdown for delivery reports and escalations. Paste the **Instructions** block from the section above (or `multica squad update <NIGHTSHIFT-id> --instructions "..."`) — Multica shows it to the leader only; role blurbs are context for the leader too, and grant no permissions. Access matters here: a member can assign or @-mention the squad only if they can run its leader, so `trigger` must stay on *Entire workspace*.
 
-**5. Install the team constitution.** Copy `agents/_team-instructions.md` into the target repo's root as `CLAUDE.md` (every agent runs Claude Code, which reads it on every run; `AGENTS.md` works too). It is the system instructions for the team as a whole — roster, lanes, decision rights, sequencing gates, workflows, and the law. Fill in its §0 with this repo's specifics (what it is, how to build and test, the top gotchas) — the law is org-wide; §0 is the per-repo part. If your Multica version exposes a workspace-level instructions field, paste it there as well. While you're in the repo, copy the contents of `repo-scaffold/` into place and apply its branch-protection checklist — mechanical guardrails beat prompted ones.
+**5. Install the team constitution.** Copy `agents/_team-instructions.md` into the target repo's root as `CLAUDE.md` (every agent runs Claude Code, which reads it on every run; `AGENTS.md` works too). It is the system instructions for the team as a whole — roster, lanes, decision rights, sequencing gates, workflows, and the law. Fill in its §0 with this repo's specifics (what it is, how to build and test, the top gotchas) plus the two mention handles — the squad's and yours, copied from the @-picker — since members never receive a roster. The law is org-wide; §0 is the per-repo part. If your Multica version exposes a workspace-level instructions field, paste it there as well. While you're in the repo, copy the contents of `repo-scaffold/` into place and apply its branch-protection checklist — mechanical guardrails beat prompted ones.
 
 **6. Wire the autopilots.** `autopilots.md` holds six paste-ready automations — zombie sweep, pipeline health, docs rot hunt, ADR backfill, janitor sweep, and a CI red-alert webhook. Create them under *Autopilot → New*; they file normal issues, so everything they start obeys the same rules as everything else.
 
-**7. Smoke-test the wiring.** Run `acceptance-tests.md` — ten throwaway issues covering triage, splitting, PR discipline, bug-flow order, the draft/approval gate, safety rails, recommend-vs-decide, status honesty, the architecture design/record split, and STE-compliant answers. Each test names the file to fix if it fails. Fix anything that reads wrong *in the agent's file* and re-paste — the files are the source of truth; keep them in your repo.
+**7. Smoke-test the wiring.** Run `acceptance-tests.md` — eleven throwaway issues covering triage, splitting, PR discipline, bug-flow order, the draft/approval gate, safety rails, recommend-vs-decide, status honesty, the architecture design/record split, STE-compliant answers, and the merge button staying yours. Each test names the file to fix if it fails. Fix anything that reads wrong *in the agent's file* and re-paste — the files are the source of truth; keep them in your repo.
 
 ---
 
@@ -179,9 +185,9 @@ All 26 are written and included in this pack — each a folder holding a `SKILL.
 
 ## Standard workflows
 
-**Feature** — Operator files idea → NIGHTSHIFT → @trigger routes to @wire → problem framing + acceptance criteria → @sigma design options + system components → @palette + @valve build (contract-first) → @filter verifies against acceptance criteria → @merge ships → @quill docs + changelog → @jinx drafts announcement → Operator approves publish.
+**Feature** — Operator files idea → NIGHTSHIFT → @trigger routes to @wire → problem framing + acceptance criteria → @sigma design options + system components → @palette + @valve build (contract-first) → @filter verifies against acceptance criteria → @merge certifies green + merge-ready → Operator merges → @quill docs + changelog → @jinx drafts announcement → Operator approves publish.
 
-**Bug** — anyone files → @filter deterministic repro first (no repro, no fix) → failing test attached → owning engineer fixes → @filter verifies on the original case, regression guard lands → @merge ships.
+**Bug** — anyone files → @filter deterministic repro first (no repro, no fix) → failing test attached → owning engineer fixes → @filter verifies on the original case, regression guard lands → @merge certifies merge-ready → Operator merges.
 
 **Architecture** — need or structural problem → @void analyzes and delivers a structured plan (options, trade-offs, recommendation) → Operator decides → @index files the RFC before a large build and the ADR once decided → build proceeds per plan under the normal gates.
 
@@ -189,17 +195,19 @@ All 26 are written and included in this pack — each a folder holding a `SKILL.
 
 **Release** — @merge runs the runbook (rollback pre-staged) → @quill translates commits into a human changelog → @jinx drafts comms → Operator sign-off gates anything public.
 
+The arrows show the order of crafts, not who presses send: on squad-assigned work every arrow is a member's report followed by @trigger's routing — never a member-to-member mention.
+
 ---
 
 ## House rules (the short version)
 
 The full text lives in `agents/_team-instructions.md` — the team constitution (`agents/_shared-protocol.md` is its per-agent excerpt); the spirit in five lines:
 
-1. **Read the whole thread, then act, then report with receipts, then hand off.** Every turn ends with the ball visibly in someone's court.
+1. **Read the whole thread, then act, then report with receipts, then stop.** On squad work the report is the hand-off — @trigger routes every hop; members never route each other.
 2. **Clean, concise, and in ASD-STE100 Simplified Technical English** — only relevant information, and never repeating what another agent already said unless the Operator needs it.
 3. **Truth protocol:** verified / inferred / assumed — labeled. Nobody fabricates. "Unknown + how I'd find out" is a first-class answer.
 4. **Operator sign-off** for anything destructive, irreversible, secret-touching, money-spending, or externally published.
-5. **No ping-pong, three-bounce escalation, one owner per outcome — and every code change ships as a pull request.**
+5. **Members never @-mention each other, three-turn escalation, one owner per outcome — every code change ships as a pull request, and the Operator merges it.**
 
 ---
 

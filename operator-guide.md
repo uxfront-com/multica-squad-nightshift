@@ -4,10 +4,11 @@ One page for the human in the loop. Everything here is the short form of rules t
 
 ## Getting work in
 
-- **Default:** assign the issue to **NIGHTSHIFT** → @trigger triages, splits if multi-craft, routes. Use the issue templates — the fields are exactly what triage and QA consume.
-- **Fast lane:** @-mention an agent directly when you already know who you need; that routes past the leader on purpose.
-- **Opinion without reassigning:** mention the squad in a comment ("NIGHTSHIFT — who should own this?").
-- **Splits come back to the squad:** when @trigger breaks work down, the sub-issues are assigned to NIGHTSHIFT, not to individuals — each piece gets its own triage and its owner named in the routing comment. That's by design; don't reassign them to a member unless you're taking the fast lane deliberately.
+- **Default:** assign the issue to **NIGHTSHIFT** → @trigger triages, splits if multi-craft, routes, and coordinates every hop until it reports the deliverable back to you. Use the issue templates — the fields are exactly what triage and QA consume.
+- **Scope clear, one specialist enough?** Assign the issue **directly to that agent** — it becomes the official assignee and owns the status end to end. (Per the Multica docs, squads are for when the owner can't be determined up front.)
+- **Just a look:** @-mention an agent in a comment — no assignee change, no status change. @-mention the squad instead when you want @trigger to pick who looks ("NIGHTSHIFT — who should own this?").
+- **Splits come back to the squad:** when @trigger breaks work down, the sub-issues are created in Todo and assigned to NIGHTSHIFT, not to individuals — each piece gets its own triage and its owner named in the routing comment. Your `done` on a sub-issue re-triggers @trigger on the parent. Don't reassign a sub-issue to a member unless you mean to take it out of the squad's coordination.
+- **Reassigning cancels in-flight runs** — every active task on the issue, the leader's included — and enqueues the new assignee. Archiving the squad is irreversible and hands its issues and automations to @trigger; create a new squad instead.
 - **Park without starting:** assigning while the issue sits in `backlog` (or choosing *Don't start yet*) settles ownership without a run — work begins when it leaves backlog or you ask in a comment. The assignment dialog's **handoff note is per-run scope**; durable requirements belong in the issue itself.
 - **Mentions fire only when posted:** editing an @ into an existing comment triggers nobody — post a new comment. And throwaway questions don't need an issue at all: chat with the agent directly.
 - **Find your unknowns first:** for fuzzy territory, ask for a **blind-spot pass** — your unknown unknowns, named and ranked (`@void` for technical territory, `@wire` for product) — hand agents **references instead of descriptions** (code, a mock, the exact competitor flow you mean), and request cheap **prototypes** when you'll only know it when you see it.
@@ -19,8 +20,10 @@ One page for the human in the loop. Everything here is the short form of rules t
 `✅ Done` · `🔶 Blocked` · `🔷 Needs decision` · `❌ Failed`, then What/Why/Proof/Next.
 
 - Answer **🔷** first — those threads are waiting on you by design.
+- **On squad work the delivery report comes from @trigger:** it moves the parent to `in_review` and @-mentions you — conclusion, PR link(s), what needs your judgment. Members' reports along the way are addressed to @trigger; they aren't waiting on you unless flagged 🔷.
 - **🔶 that names a missing capability** (can't push, can't open PR, no issue tool) is a tooling fix, not a prompt fix — see `repo-scaffold/README.md`.
 - Code work's Proof is a **PR link**. No link, not done — say so.
+- **You merge.** Agents open PRs; @merge posts a readiness verdict (`✅ Ready to merge` / `❌ Not ready` + why); the merge button is yours, always. An agent merging a PR — or enabling auto-merge — is a drift to fix immediately.
 - **`in_review` on the board is an agent claiming delivery** — verify the Proof, then *you* flip `done`. Agents never do; a board where `done` only ever comes from you is the point.
 
 ## The approval grammar (what your words do)
@@ -68,4 +71,4 @@ The sweeps and reports below ship as automations — wire `autopilots.md` once a
 
 ## Escalations you should expect (they're features)
 
-Three-bounce impasses, two-failed-attempt blockers, P0/P1 confirmations, scope collisions with a stack-rank attached, structural-problem flags from @void, and gate-skip requests said out loud ("skipping full suite for the hotfix — here's what that covers"). An escalation with a recommendation is the system working; silence is the only bad signal.
+Three-turn impasses, two-failed-attempt blockers, P0/P1 confirmations, scope collisions with a stack-rank attached, structural-problem flags from @void, and gate-skip requests said out loud ("skipping full suite for the hotfix — here's what that covers"). An escalation with a recommendation is the system working; silence is the only bad signal.
