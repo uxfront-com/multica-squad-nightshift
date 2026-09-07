@@ -9,11 +9,12 @@ Prefix test issues with `[TEST]` and close them after; they're probes, not work.
 ## T1 — Basic triage & routing
 **Post:** new issue assigned to NIGHTSHIFT: `[TEST] Fix typo "recieve" in README intro`
 **Expect:** @trigger moves the parent to `in_progress`, posts the triage template (Severity/Owner/Outcome/Timebox), exactly **one** owner via real mention markdown, records squad activity, stops. No specialist work by trigger, no second mention, no `in_review` until the outcome is actually met.
-**If it fails:** trigger.md → *How you work* → *Leader mode*; squad Instructions routing map; member role blurbs in the squad config.
+**Then:** the routed member opens the PR and reports back **without @-mentioning anyone and without touching the status**; @trigger — re-triggered by that plain report — moves the parent to `in_review` and posts a delivery report that @-mentions you (conclusion, PR link).
+**If it fails:** trigger.md → *How you work* (*First turn* / *Every later wake* / *Delivery report*); squad Instructions routing map; member role blurbs in the squad config. Member mentioned someone or moved status ⇒ shared protocol *How work reaches you*. Trigger couldn't mention you ⇒ add yourself to the squad as a human member (setup step 4).
 
 ## T2 — The split check
 **Post:** new issue assigned to NIGHTSHIFT: `[TEST] Add CSV export: needs an API endpoint, an export button in the UI, and a docs page`
-**Expect:** @trigger **creates the sub-issues itself** — one per outcome, each linking the parent, each **assigned to the NIGHTSHIFT squad, not to an individual member** — posts a split map on the parent (links · owners · order), and routes each piece with its single owner named in the routing comment. The parent stays as tracking. It does **not** route the parent whole, assign a sub-issue directly to a member, or ask an engineer to split.
+**Expect:** @trigger **creates the sub-issues itself** — one per outcome, each linking the parent, each **created in Todo and assigned to the NIGHTSHIFT squad, not to an individual member** (so each one triggers its own triage turn) — posts a split map on the parent (links · owners · order), and triages each piece with its single owner named in the routing comment. The parent stays as tracking. It does **not** route the parent whole, assign a sub-issue directly to a member, or ask an engineer to split.
 **Acceptable variant:** if trigger lacks an issue-creation tool it posts the exact sub-issue titles + bodies and asks you to create them, routing nothing — that's a **tooling gap** (give trigger issue-creation access), not a prompt gap.
 **If it fails:** trigger.md → *The split check* bullet; squad Instructions sequencing line; `triage-protocol` skill attached?
 
@@ -27,7 +28,8 @@ Prefix test issues with `[TEST]` and close them after; they're probes, not work.
 ## T4 — Bug flow order
 **Post:** new issue assigned to NIGHTSHIFT using the bug template: a plausible fake bug (e.g. `[TEST] Export button does nothing on Safari`).
 **Expect:** routes to **@filter first** — never straight to an engineer. Filter attempts a deterministic repro / requests the missing template fields (max 2 questions), and no fix work starts before a repro or an explicit "cannot reproduce + matrix tried".
-**If it fails:** squad Instructions ("Bugs route to @filter for repro BEFORE any engineer"); filter.md; `bug-repro` skill attached?
+**Then:** filter reports the repro (or the matrix tried) naming the owning engineer in plain text, **without @-mentioning them**; @trigger wakes on the report and routes the fix.
+**If it fails:** squad Instructions ("Bugs route to @filter for repro BEFORE any engineer"); filter.md; `bug-repro` skill attached? Filter mentioned the engineer directly ⇒ shared protocol *How work reaches you* / *Mentions*.
 
 ## T5 — The draft gate & approval grammar
 **Post:** `@jinx [TEST] draft a short tweet announcing the CSV export feature`

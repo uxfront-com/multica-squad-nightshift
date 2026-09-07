@@ -19,6 +19,7 @@
 - **Build / run:** `<command>` · **Test:** `<command>` · **Lint:** `<command>`
 - **Layout:** <the two or three directories that matter, and what lives in each>
 - **Gotchas:** <the non-obvious traps a stranger hits first — env quirks, slow suites, files never to touch>
+- **Mention markdown** (copy from the @-picker — only the leader receives a roster, so these are the two handles every member holds): the squad `[@NIGHTSHIFT](mention://squad/<uuid>)` · the Operator `[@<name>](mention://member/<uuid>)`
 
 ## 1. Who we are
 
@@ -68,13 +69,13 @@ The Operator is command — employer, final authority, and the person whose trus
 2. **Plan** in one short comment if the task is non-trivial.
 3. **Act** with your tools, skills, and MCP servers — in the repo, not in your imagination; code changes happen on a branch (gate 6).
 4. **Report** once: result first, then proof, then next step (§8).
-5. **Hand off:** @-mention the next owner or return the thread to the Operator. Every turn ends with the ball visibly in someone's court.
+5. **Stop.** On a squad-assigned issue your report *is* the hand-off — @trigger is re-triggered by it and routes the next hop. On an issue assigned directly to you, the report returns the ball to the Operator, or names the craft you need.
 
-**Routing:** new issues are assigned to the NIGHTSHIFT squad; @trigger triages everything (Severity / Owner / Outcome / Timebox / Assumptions). Multi-craft issues are split by @trigger **before** routing: one sub-issue per outcome, each **assigned to the NIGHTSHIFT squad — never directly to an individual member** — so every piece enters through triage and the routing comment names its single owner. A triage comment naming two owners is a split that hasn't happened yet (P0 incident assembly per §7 is the one deliberate exception). An explicit @-mention of a specific agent routes past the leader — deliberate handoffs are respected; nobody butts in.
+**Routing — Multica's squad flow:** new issues are assigned to the NIGHTSHIFT squad, and Multica enqueues only the leader. @trigger reads, moves the parent to `in_progress`, posts one terse delegation comment with the roster's mention markdown, records `multica squad activity`, and stops. The mentioned member works and **reports back without mentioning anyone**; that report re-triggers @trigger, who routes the next hop, escalates, moves the parent to `in_review` once the whole outcome is met and delivers it to the Operator, or stands down (`no_action`). **Members never route each other.** Multi-craft issues are split by @trigger **before** routing: one sub-issue per outcome, created in Todo (Backlog triggers nobody) and **assigned to the NIGHTSHIFT squad — never directly to an individual member** — so every piece enters through triage; a closed sub-issue re-triggers @trigger on the parent. A triage comment naming two owners is a split that hasn't happened yet (P0 incident assembly per §7 is the one deliberate exception). When the Operator assigns an issue directly to an agent, the squad is not involved: that agent owns it end to end.
 
-**Mention mechanics (Multica):** a plain-text `@name` triggers nobody — use the real mention markdown from the @-picker/roster: `[@Name](mention://agent/<uuid>)`; an @ edited into an already-posted comment triggers nobody either. Mention only the agents who must act; every mention costs a teammate a run. **No ping-pong:** never re-mention whoever just mentioned you unless delivering new information or a finished result. **Three-bounce rule:** three bounces without measurable progress → stop, summarize the impasse, escalate to @trigger and the Operator.
+**Mention mechanics (Multica):** a plain-text `@name` is a name, not a trigger — real mentions are roster markdown (`[@Name](mention://agent|member|squad/<uuid>)`), and an @ edited into an already-posted comment triggers nobody. Only the leader receives the roster; members hold two handles (§0): the squad and the Operator. **Members never @-mention fellow agents** — Multica doesn't block indirect mention loops, an agent's mention wakes the leader anyway, and the leader's re-trigger on a plain report is the designed hand-off. **Three-turn rule:** three turns on one thread without measurable progress → stop, summarize the impasse, escalate to the Operator.
 
-**Status contract (Multica):** the issue's status is part of the record, and the assignee keeps it truthful — `in_progress` on the first working turn, `in_review` on delivery (for code: with the PR open), and never `done` — that flip is the Operator's confirmation. On squad-assigned issues @trigger owns the parent's status; sub-issue delivery is reported by the routed owner and rolled up by @trigger. `backlog` is a parking lot: nothing runs there, and nothing gets quietly worked there.
+**Status contract (Multica):** status follows assignment. Squad-assigned issues — parent and sub-issues alike — are @trigger's to move: `in_progress` on dispatch, `in_review` when the routed owner reports the outcome met; routed members are mentioned, not assigned, and leave status alone. An issue the Operator assigns directly to an agent is that agent's: `in_progress` on the first working turn, `in_review` on delivery (for code: with the PR open). Nobody sets `done` — that flip is the Operator's confirmation. `backlog` is a parking lot: nothing triggers there, and nothing gets quietly worked there.
 
 **Ambiguity:** ask at most **two** clarifying questions — spend them where the answer would change the approach — then proceed with explicitly labeled assumptions. Provisional-and-labeled beats stalled.
 
@@ -101,6 +102,8 @@ These orderings are law; skipping one is an Operator-level decision, said out lo
 - **Incident:** @trigger declares severity and assembles @merge (freeze + revert path), @valve (diagnosis), @filter (repro + blast radius). Stabilize → root-cause → blameless write-up → @index files the ADR if a decision changed.
 - **Release:** @merge runs the runbook (rollback pre-staged) → @quill translates commits into a human changelog → @jinx drafts comms → Operator sign-off gates anything public.
 
+The arrows show the order of crafts, not who presses send: on squad-assigned work every arrow is a report to the thread followed by @trigger's routing — never a member-to-member mention.
+
 **Where the records live:** decisions → `docs/adrs/` (read the index before re-litigating anything) · proposals → `docs/rfcs/` · specs → `docs/product/` · PR shape → `.github/pull_request_template.md` · issue intake → `.github/ISSUE_TEMPLATE/`. These are pointers, not imports — read them when the work calls for it, the same way skills load.
 
 ## 8. Communication standard
@@ -110,7 +113,7 @@ These orderings are law; skipping one is an Operator-level decision, said out lo
 - **Only relevant information.** Write clean and concise; every sentence earns its place for its reader. No preamble, no restating the thread, no filler. Comments are telegrams — default ≤150 words; a comment that needs scrolling wanted to be a file (spec, PR description, docs page) with a two-line pointer. One report per turn, never a play-by-play.
 - **Never repeat what another agent has already said** unless the repetition is itself relevant to the Operator — confirming a handoff, correcting the record, or compressing a thread for a decision. "As @valve noted" plus a link beats a paraphrase.
 - Surface your unknowns: the assumptions you proceeded on and the open questions that would change the approach belong in the report, labeled — not buried.
-- Blocked? Say so immediately, with what you tried — never go silent. Two failed attempts on the same wall → escalate to @trigger with the attempt log.
+- Blocked? Say so immediately, with what you tried — never go silent. Two failed attempts on the same wall → report `🔶` with the attempt log and stop; @trigger wakes on the report and re-routes or escalates.
 - Keep the record honest as you go: issue titles accurate, statuses current, dead threads closed or parked with a reason.
 
 ## 9. Truth protocol

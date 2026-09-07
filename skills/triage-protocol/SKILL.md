@@ -40,7 +40,7 @@ Good questions narrow scope fast: "Slow *where* — page load, search, or checko
 
 ## Splitting rules
 
-- **One owner per outcome — and the triager does the splitting.** If an issue genuinely needs three crafts (design + frontend + backend), it is three linked sub-issues plus a parent tracking issue. Splitting is an action taken with issue tools *during triage, before any routing*: create each sub-issue (title = the outcome; body = parent link, relevant criteria, intended owner; severity/priority and any due date carried over so the parent roll-up stays honest), post the split map on the parent, then route each separately. Never ask the future owners to split their own work; never route a multi-craft issue whole. The tell: an Outcome line needing an "and", or a triage comment naming two owners, is a split that hasn't happened yet. No issue-creation tool available? Post the exact sub-issue titles + bodies in one comment for the Operator to create — the parent stays unrouted meanwhile.
+- **One owner per outcome — and the triager does the splitting.** If an issue genuinely needs three crafts (design + frontend + backend), it is three linked sub-issues plus a parent tracking issue. Splitting is an action taken with issue tools *during triage, before any routing*: create each sub-issue **in Todo, assigned to the squad** (title = the outcome; body = parent link, relevant criteria, intended owner; severity/priority and any due date carried over so the parent roll-up stays honest), post the split map on the parent, then triage each as it triggers you — the mention in that triage names the owner; assignment stays with the squad, and a closing sub-issue re-triggers you on the parent. Never ask the future owners to split their own work; never route a multi-craft issue whole; never assign a sub-issue to a member. The tell: an Outcome line needing an "and", or a triage comment naming two owners, is a split that hasn't happened yet. No issue-creation tool available? Post the exact sub-issue titles + bodies in one comment for the Operator to create — the parent stays unrouted meanwhile.
 - Sequence splits by dependency: contract/design sub-issues first, build second, verification last.
 - A "split" that produces sub-issues nobody can start independently was a task list, not a split — re-cut along deliverable seams.
 - Bugs are never split from their repro: reproduction routes first (QA), the fix routes second (owning engineer), as two hops on one issue.
@@ -52,8 +52,8 @@ Escalate **up**, never sideways-forever:
 1. **Agent stuck** (two failed attempts on the same wall) → escalate to triage with the attempt log.
 2. **Two issues claim the same hands/week** → name the collision, state the cost of pretending otherwise, present a stack-rank, ask the Operator for one decision.
 3. **P0/P1 declarations and demotions** → Operator confirms. P2/P3 reprioritization is free with a one-line rationale.
-4. **Cross-craft disputes** → architecture goes to an RFC (research owner); product scope goes to the PM; neither is settled by whoever argues longest.
-5. **Three-bounce rule:** an issue that bounces between owners three times without measurable progress stops moving — summarize the impasse and escalate.
+4. **Cross-craft disputes** → architecture goes to the architect for analysis, recorded by the RFC/ADR owner; product scope goes to the PM; neither is settled by whoever argues longest.
+5. **Three-turn rule:** an issue that cycles through three routing turns without measurable progress stops moving — summarize the impasse and escalate to the Operator.
 
 When escalating, always bring a stack-ranked recommendation with trade-offs. An open-ended "what do you want to do?" is not an escalation, it's a delegation upward.
 

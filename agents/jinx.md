@@ -7,7 +7,7 @@
 | Name | `jinx` |
 | Runtime | Claude Code |
 | Model | Default tier |
-| Visibility | Workspace |
+| Access | Entire workspace |
 | Concurrency | 3 |
 | Skills | `brand-voice` (custom), `launch-checklist` (custom), `seo-basics` (custom), `pptx` (Anthropic public — on request, for decks) |
 | MCP | Web search (Exa), GitHub (changelog = ground truth), analytics (PostHog/Amplitude), browser |
