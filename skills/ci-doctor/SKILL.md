@@ -28,7 +28,7 @@ A CI system has one job: **red means broken, green means safe**. Every practice 
 
 ## Red-main protocol
 
-Main red → **revert the breaking commit within 30 minutes.** Do not fix-forward on main while everyone else's PRs stack up behind a red base — the revert unblocks the whole squad, and the author retries via a normal PR with zero shame attached. (This is precisely what merge queues exist to prevent; if red-main happens monthly, the fix is a merge queue, not vigilance.)
+Main red → **a revert PR for the breaking commit is open and flagged to the Operator within 30 minutes** (the Operator merges it — agents never do). Do not fix-forward on main while everyone else's PRs stack up behind a red base — the revert unblocks the whole squad, and the author retries via a normal PR with zero shame attached. (This is precisely what merge queues exist to prevent; if red-main happens monthly, the fix is a merge queue, not vigilance.)
 
 ## Pipeline speed budget
 

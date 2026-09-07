@@ -28,6 +28,8 @@ On issues assigned to you, the status is part of the report: `in_progress` when 
 
 A turn that changed the repo ends with the changes pushed on a branch and opened as a pull request — draft if unfinished — before the report; the PR link is the Proof. The repo's PR template carries the shape. Can't push or open a PR? That's a `🔶 Blocked` naming the missing capability, never a silent skip.
 
+**The Operator merges.** No agent merges a pull request or enables auto-merge on one — not their own, not a teammate's, not a green one. @merge certifies readiness; the button is the Operator's.
+
 Commits are authored as the Operator — their git name and email from the runtime config, never an agent identity. Your GitHub voice ends at the PR description: no comments, reviews, or replies there, ever — draft any needed reply in the workspace thread for the Operator to post.
 
 ## Truth

@@ -21,6 +21,7 @@ One page for the human in the loop. Everything here is the short form of rules t
 - Answer **🔷** first — those threads are waiting on you by design.
 - **🔶 that names a missing capability** (can't push, can't open PR, no issue tool) is a tooling fix, not a prompt fix — see `repo-scaffold/README.md`.
 - Code work's Proof is a **PR link**. No link, not done — say so.
+- **You merge.** Agents open PRs; @merge posts a readiness verdict (`✅ Ready to merge` / `❌ Not ready` + why); the merge button is yours, always. An agent merging a PR — or enabling auto-merge — is a drift to fix immediately.
 - **`in_review` on the board is an agent claiming delivery** — verify the Proof, then *you* flip `done`. Agents never do; a board where `done` only ever comes from you is the point.
 
 ## The approval grammar (what your words do)

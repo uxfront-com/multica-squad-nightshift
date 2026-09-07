@@ -17,7 +17,7 @@ This pack contains everything needed to stand the squad up in [Multica](https://
 | `@sigma` | Sigma | Design engineer | The design system, tokenized and in Storybook; accessibility built in. |
 | `@palette` | Palette | Frontend engineer | Every state designed, fast on cheap hardware, zero layout shift. |
 | `@valve` | Valve | Backend engineer | Graceful degradation, honest data models, boring migrations. |
-| `@merge` | Merge | Pipeline keeper | `main` green and deployable every minute of the day. |
+| `@merge` | Merge | Pipeline keeper | `main` green, CI fast and trusted, PRs merge-ready — the Operator merges. |
 | `@filter` | Filter | Quality assurance engineer | Deterministic repro before any fix; a regression guard on every bug. |
 | `@void` | Void | Software architect | Clear structured plans; pragmatic decisions; no reinvented wheels. |
 | `@index` | Index | RFCs & ADRs | RFC before large changes, ADR after decisions, as few words as possible. |
@@ -101,7 +101,7 @@ Then paste the **Instructions** block from the section above.
 
 **6. Wire the autopilots.** `autopilots.md` holds six paste-ready automations — zombie sweep, pipeline health, docs rot hunt, ADR backfill, janitor sweep, and a CI red-alert webhook. Create them under *Autopilot → New*; they file normal issues, so everything they start obeys the same rules as everything else.
 
-**7. Smoke-test the wiring.** Run `acceptance-tests.md` — nine throwaway issues covering triage, splitting, PR discipline, bug-flow order, the draft/approval gate, safety rails, recommend-vs-decide, status honesty, and the architecture design/record split. Each test names the file to fix if it fails. Fix anything that reads wrong *in the agent's file* and re-paste — the files are the source of truth; keep them in your repo.
+**7. Smoke-test the wiring.** Run `acceptance-tests.md` — ten throwaway issues covering triage, splitting, PR discipline, bug-flow order, the draft/approval gate, safety rails, recommend-vs-decide, status honesty, the architecture design/record split, and the merge button staying yours. Each test names the file to fix if it fails. Fix anything that reads wrong *in the agent's file* and re-paste — the files are the source of truth; keep them in your repo.
 
 ---
 
@@ -176,9 +176,9 @@ All 25 are written and included in this pack — each a folder holding a `SKILL.
 
 ## Standard workflows
 
-**Feature** — Operator files idea → NIGHTSHIFT → @trigger routes to @wire → problem framing + acceptance criteria → @sigma design options + system components → @palette + @valve build (contract-first) → @filter verifies against acceptance criteria → @merge ships → @quill docs + changelog → @jinx drafts announcement → Operator approves publish.
+**Feature** — Operator files idea → NIGHTSHIFT → @trigger routes to @wire → problem framing + acceptance criteria → @sigma design options + system components → @palette + @valve build (contract-first) → @filter verifies against acceptance criteria → @merge certifies green + merge-ready → Operator merges → @quill docs + changelog → @jinx drafts announcement → Operator approves publish.
 
-**Bug** — anyone files → @filter deterministic repro first (no repro, no fix) → failing test attached → owning engineer fixes → @filter verifies on the original case, regression guard lands → @merge ships.
+**Bug** — anyone files → @filter deterministic repro first (no repro, no fix) → failing test attached → owning engineer fixes → @filter verifies on the original case, regression guard lands → @merge certifies merge-ready → Operator merges.
 
 **Architecture** — need or structural problem → @void analyzes and delivers a structured plan (options, trade-offs, recommendation) → Operator decides → @index files the RFC before a large build and the ADR once decided → build proceeds per plan under the normal gates.
 
@@ -196,7 +196,7 @@ The full text lives in `agents/_team-instructions.md` — the team constitution 
 2. **Clean and concise, only relevant information** — and never repeating what another agent already said unless the Operator needs it.
 3. **Truth protocol:** verified / inferred / assumed — labeled. Nobody fabricates. "Unknown + how I'd find out" is a first-class answer.
 4. **Operator sign-off** for anything destructive, irreversible, secret-touching, money-spending, or externally published.
-5. **No ping-pong, three-bounce escalation, one owner per outcome — and every code change ships as a pull request.**
+5. **No ping-pong, three-bounce escalation, one owner per outcome — every code change ships as a pull request, and the Operator merges it.**
 
 ---
 

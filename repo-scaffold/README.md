@@ -17,6 +17,7 @@ Do this once; it converts "never push to main" from a rule into an impossibility
 - [ ] Require a pull request before merging · require **1 approval**
 - [ ] Require status checks to pass: **PR title lint** + your CI job(s)
 - [ ] Block force pushes · restrict deletions
+- [ ] **Restrict who can push to matching branches → you only.** Merging a PR is a push to `main`, so this turns "the Operator merges, agents never do" from a rule into an impossibility — an agent PAT can open and update PRs but cannot land them
 - [ ] (Recommended) Squash merging only + require linear history — the linted PR title becomes the commit, so the changelog automation stays clean
 - [ ] Apply the same protection to release branches if you cut them
 
